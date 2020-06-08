@@ -1,0 +1,289 @@
+.article-card {
+	@include font-size(18px, 24px);
+
+	font-weight: 700;
+	color: #9E9E9E;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	padding: 17px 15px;
+	box-shadow: 0 0 12px rgba(#000000, 0.12);
+	border-radius: 20px;
+	margin: 0 0 25px;
+
+	@include media('<tablet') {
+		@include font-size(16px, 22px);
+
+		margin: 0 0 20px;
+	}
+
+	.image-holder {
+		width: 207px;
+		position: relative;
+		overflow: hidden;
+		border-radius: 10px;
+
+		@include media('<tablet') {
+			width: 100%;
+			max-width: 207px;
+		}
+
+		img {
+			@include img;
+
+			transition: all 0.4s ease;
+		}
+
+		a {
+			display: block;
+
+			&:hover {
+				img {
+					transform: scale(1.05);
+				}
+			}
+		}
+	}
+
+	.text-holder {
+		width: calc(100% - 207px);
+		padding: 7px 0 0 25px;
+
+		@include media('<tablet') {
+			width: 100%;
+			padding: 10px 0 0;
+		}
+	}
+
+	.h3 {
+		font-size: 26px;
+		margin: 0 0 15px;
+
+		@include media('<tablet') {
+			font-size: 20px;
+			line-height: 1.25;
+		}
+
+		a {
+			color: #0D1940;
+
+			&:hover {
+				color: $pink;
+			}
+		}
+	}
+
+	p {
+		margin: 0 0 25px;
+
+		@include media('<tablet') {
+			margin: 0 0 15px;
+		}
+	}
+
+	.list-detail {
+		@include font-size(18px, 33px);
+
+		font-weight: 600;
+		color: #707070;
+		margin: 0 0 20px;
+
+		@include media('<tablet') {
+			@include font-size(14px, 22px);
+		}
+
+		li {
+			position: relative;
+			padding: 0 0 0 40px;
+			margin: 0 0 7px;
+
+			@include media('<tablet') {
+				padding: 0 0 0 30px;
+			}
+		}
+
+		.icon {
+			font-size: 22px;
+			position: absolute;
+			left: 0;
+			top: 5px;
+			color: #FF51B3;
+
+			@include media('<tablet') {
+				font-size: 18px;
+				top: 3px;
+			}
+		}
+	}
+
+	.more-info {
+		@include font-size(18px, 33px);
+
+		color: #A8A7A7;
+		font-weight: 600;
+		max-width: 500px;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: center;
+
+		@include media('<tablet') {
+			@include font-size(14px, 24px);
+		}
+	}
+}
+
+.article-row {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	margin: 0 -20px;
+
+	@include media('<tablet') {
+		margin: 0;
+	}
+
+	.recommended-article {
+		width: calc(50% - 40px);
+
+		@include media('<tablet') {
+			width: 100%;
+		}
+	}
+}
+
+.recommended-article {
+	@include font-size(18px, 24px);
+
+	font-weight: 700;
+	color: #9E9E9E;
+	margin: 0 20px;
+	padding: 0 20px;
+	position: relative;
+	z-index: 2;
+
+	@include media('<tablet') {
+		margin: 0 0 30px;
+	}
+
+	&:after {
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		top: 86px;
+		background: $white;
+		box-shadow: 0 0 12px rgba(#000, 0.16);
+		content: '';
+		z-index: -1;
+		border-radius: 20px;
+	}
+
+	.image-holder {
+		max-width: 398px;
+		margin: 0 0 20px;
+		border-radius: 10px;
+		position: relative;
+		overflow: hidden;
+
+		a {
+			display: block;
+
+			&:hover {
+				img {
+					transform: scale(1.05);
+				}
+			}
+		}
+
+		img {
+			@include img;
+
+			transition: all 0.4s ease;
+		}
+	}
+
+	.text-holder {
+		padding: 0 0 10px;
+	}
+
+	.h3 {
+		@include font-size(25px, 28px);
+
+		margin: 0 0 11px;
+
+		@include media('<tablet') {
+			font-size: 22px;
+			line-height: 1.25;
+		}
+
+		a {
+			color: #0D1940;
+
+			&:hover {
+				color: $pink;
+			}
+		}
+	}
+
+	p {
+		margin: 0 0 20px;
+
+		@include media('<tablet') {
+			margin: 0 0 15px;
+		}
+	}
+
+	.list-detail {
+		@include font-size(18px, 33px);
+
+		font-weight: 600;
+		color: #707070;
+		margin: 0 0 12px;
+
+		@include media('<tablet') {
+			@include font-size(14px, 22px);
+		}
+
+		li {
+			position: relative;
+			padding: 0 0 0 35px;
+			margin: 0 0 2px;
+
+			@include media('<tablet') {
+				padding: 0 0 0 30px;
+			}
+		}
+
+		.icon {
+			font-size: 19px;
+			position: absolute;
+			left: 0;
+			top: 5px;
+			color: #FF51B3;
+
+			@include media('<tablet') {
+				font-size: 18px;
+				top: 3px;
+			}
+		}
+	}
+
+	.more-info {
+		@include font-size(18px, 33px);
+
+		color: #A8A7A7;
+		font-weight: 600;
+		max-width: 500px;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: center;
+
+		@include media('<tablet') {
+			@include font-size(14px, 24px);
+		}
+	}
+}

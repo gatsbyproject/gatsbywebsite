@@ -1,0 +1,202 @@
+.aboutus-section {
+	position: relative;
+	background: #e9e9e9;
+	padding: 100px 0;
+
+	@include media('<desktop') {
+		padding: 60px 0;
+	}
+
+	@include media('<tablet') {
+		padding: 30px 0;
+	}
+
+	.wrap {
+		position: relative;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-start;
+		justify-content: space-between;
+
+		@include media('<tablet') {
+			display: block;
+		}
+	}
+
+	.image-holder {
+		position: relative;
+		margin: 0 0 0 50px;
+		width: 350px;
+
+		@include media('<desktop') {
+			margin: 0 0 0 25px;
+			width: 300px;
+		}
+
+		@include media('<tablet') {
+			width: 240px;
+			margin: 0 auto 30px;
+		}
+
+		img {
+			border-radius: 20px;
+			width: 100%;
+			height: auto;
+			display: block;
+		}
+	}
+
+	.icon01 {
+		position: absolute;
+		left: -44px;
+		top: 50px;
+		border-radius: 5px;
+		width: 80px;
+		height: 80px;
+		text-align: center;
+		box-shadow: 30px 50px 90px 0 rgba(0, 0, 0, 0.3);
+		color: $white;
+		background: $pink;
+		z-index: 2;
+
+		@include media('<desktop') {
+			box-shadow: 30px 30px 50px 0 rgba(0, 0, 0, 0.3);
+			width: 80px;
+			height: 80px;
+			left: -30px;
+			top: 40px;
+		}
+
+		i {
+			font-size: 40px;
+			line-height: 80px;
+			display: block;
+
+			@include media('<desktop') {
+				font-size: 44px;
+				line-height: 80px;
+			}
+		}
+	}
+
+	.icon02 {
+		position: absolute;
+		right: -34px;
+		top: 100px;
+		border-radius: 5px;
+		width: 75px;
+		height: 75px;
+		text-align: center;
+		box-shadow: -30px 50px 90px 0 rgba(0, 0, 0, 0.3);
+		color: $white;
+		background: #081d4c;
+		z-index: 2;
+
+		@include media('<desktop') {
+			width: 80px;
+			height: 80px;
+			top: 80px;
+			right: -20px;
+		}
+
+		i {
+			font-size: 44px;
+			line-height: 75px;
+			display: block;
+
+			@include media('<desktop') {
+				font-size: 40px;
+				line-height: 80px;
+			}
+		}
+	}
+
+	.icon03 {
+		position: absolute;
+		left: -37px;
+		bottom: 40px;
+		border-radius: 5px;
+		width: 80px;
+		height: 80px;
+		text-align: center;
+		box-shadow: 15px 30px 60px 0 rgba(0, 0, 0, 0.3);
+		color: $white;
+		background: #081d4c;
+		z-index: 2;
+
+		@include media('<desktop') {
+			width: 90px;
+			height: 90px;
+			left: -25px;
+			bottom: 30px;
+		}
+
+		i {
+			font-size: 48px;
+			line-height: 80px;
+			display: block;
+
+			@include media('<desktop') {
+				font-size: 48px;
+				line-height: 90px;
+			}
+		}
+	}
+
+	.icon04 {
+		position: absolute;
+		right: -34px;
+		bottom: -31px;
+		border-radius: 5px;
+		width: 110px;
+		height: 110px;
+		text-align: center;
+		box-shadow: 20px 35px 60px 0 rgba(0, 0, 0, 0.3);
+		color: $white;
+		background: $pink;
+		z-index: 2;
+
+		@include media('<desktop') {
+			box-shadow: 20px 30px 50px 0 rgba(0, 0, 0, 0.3);
+			width: 110px;
+			height: 110px;
+			bottom: -20px;
+			right: -20px;
+		}
+
+		i {
+			font-size: 60px;
+			line-height: 110px;
+			display: block;
+
+			@include media('<desktop') {
+				font-size: 60px;
+				line-height: 110px;
+			}
+		}
+	}
+
+	.description {
+		padding: 23px 0 0;
+		width: 54.6%;
+
+		@include media('<large') {
+			width: 51%;
+		}
+
+		@include media('<tablet') {
+			width: 100%;
+		}
+
+		h2 {
+
+			@include media('>=large') {
+				margin: 0 0 55px;
+			}
+		}
+
+		.btn {
+			margin: 20px 0 0;
+		}
+	}
+}

@@ -1,0 +1,227 @@
+.footer {
+	@include font-size(16px, 20px);
+
+	background-image: linear-gradient(to left, #ff299d -1%, #081d4c);
+	position: relative;
+	overflow: hidden;
+	padding: 60px 0;
+	color: rgba(#fff, 0.5);
+
+	@include media('<desktop') {
+		padding: 40px 0;
+	}
+
+	@include media('<tablet') {
+		@include font-size(14px, 18px);
+
+		padding: 30px 0;
+	}
+
+	a {
+		color: rgba(#fff, 0.5);
+
+		&:hover {
+			color: #fff;
+		}
+	}
+
+	.title {
+		@include font-size(20px, 24px);
+		
+		font-weight: 700;
+		display: block;
+		text-transform: uppercase;
+		margin: 0 0 18px;
+		color: #fff;
+
+		@include media('<tablet') {
+			text-align: center;
+		}
+	}
+
+	p {
+		margin: -10px 0 0;
+
+		@include media('<widescreen') {
+			margin: 10px 0 0;
+		}
+	}
+}
+
+.footer-top {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	margin: 0 0 45px;
+
+	@include media('<tablet') {
+		margin: 0 0 30px;
+	}
+}
+
+.social-networks {
+	@include font-size(22px, 1);
+
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin: 0 -12px;
+
+	@include media('<tablet') {
+		@include font-size(20px, 1);
+
+		margin: 0;
+		width: 100%;
+		justify-content: center;
+	}
+
+	li {
+		padding: 0 12px;
+
+		@include media('<tablet') {
+			padding: 0 8px;
+		}
+	}
+
+	a {
+		color: $white;
+		transition: opacity 0.4s ease;
+
+		&:hover {
+			opacity: 0.8;
+		}
+	}
+
+	.icon-youtube,
+	.icon-twitter {
+		font-size: 20px;
+	}
+}
+
+.f-logo {
+	display: block;
+	width: 280px;
+	display: block;
+
+	@include media('<widescreen') {
+		width: 250px;
+	}
+
+	@include media('<desktop') {
+		width: 220px;
+	}
+
+	@include media('<tablet') {
+		width: 180px;
+		margin: 0 auto 30px;
+	}
+
+	a {
+		display: block;
+
+		img {
+			@include img;
+		}
+	}
+}
+
+.three-cols {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+
+	.col-apps {
+		width: 250px;
+
+		@include media('<tablet') {
+			width: 100%;
+			margin: 0 0 30px;
+		}
+	}
+
+	.col-links {
+		width: 300px;
+
+		@include media('<tablet') {
+			width: 100%;
+		}
+	}
+
+	.col-form {
+		width: 400px;
+
+		@include media('<widescreen') {
+			width: 350px;
+		}
+
+		@include media('<desktop') {
+			width: 100%;
+			padding: 30px 0 0;
+		}
+	}
+}
+
+.list-apps {
+	
+	li {
+		margin: 0 0 16px;
+	}
+
+	a {
+		@include font-size(15px, 18px);
+
+		font-weight: 500;
+		display: block;
+		text-align: center;
+		max-width: 250px;
+		padding: 18px 15px;
+		background: #FF299D;
+		border-radius: 18px;
+		color: #fff;
+
+		@include media('<tablet') {
+			margin: 0 auto;
+		}
+
+		&:hover {
+			background: darken(#FF299D, 20%);
+		}
+
+		.icon {
+			font-size: 26px;
+			line-height: 21px;
+			display: inline-block;
+			vertical-align: middle;
+			padding: 0 15px 0 0;
+		}
+	}
+}
+
+.footer-links {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	flex-wrap: wrap;
+
+	li {
+		width: 140px;
+		margin: 0 0 29px;
+
+		@include media('<tablet') {
+			width: 50%;
+			margin: 0 0 15px;
+			text-align: center;
+		}
+	}
+
+	a {
+		color: rgba($white, 0.8);
+
+		&:hover {
+			color: $white;
+		}
+	}
+}

@@ -1,0 +1,142 @@
+.accordion-section {
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	margin: -150px 0 0;
+	padding: 0 0 40px;
+	width: 100%;
+
+	@include media('<desktop') {
+		margin: -70px 0 0;
+		padding: 0 0 30px;
+	}
+
+	@include media('<tablet') {
+		margin: 0;
+		padding: 30px 0 20px;
+	}
+}
+
+.accordion {
+	position: relative;
+
+	li {
+		border: 1px solid transparent;
+		transition: all 0.4s ease;
+		position: relative;
+		border-radius: 20px;
+		margin: 0 0 40px;
+
+		@include media('<desktop') {
+			border-radius: 15px;
+			margin: 0 0 25px;
+		}
+
+		@include media('<tablet') {
+			margin: 0 0 15px;
+			border-radius: 10px;
+		}
+
+		&.active {
+			box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.08);
+			border-color: #081d4c;
+
+			@include media('<tablet') {
+				box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.08);
+			}
+
+			a {
+				color: #ff51b3;
+				background: none;
+			}
+
+			.accordion-slide {
+				display: block;
+			}
+		}
+	}
+
+	a {
+		position: relative;
+		display: block;
+		background: #f0f0f0;
+		transition: all 0.4s ease;
+		letter-spacing: 0.48px;
+		font-size: 20px;
+		line-height: 1.5;
+		font-weight: 700;
+		color: #494949;
+		border-radius: 15px;
+		padding: 25px 60px 25px 25px;
+
+		@include media('<desktop') {
+			font-size: 18px;
+			padding: 20px 45px 20px 20px;
+			border-radius: 12px;
+		}
+
+		@include media('<tablet') {
+			border-radius: 10px;
+			font-size: 16px;
+			line-height: 20px;
+			padding: 15px 35px 15px 15px;
+			letter-spacing: 0;
+		}
+
+		&:before {
+			font-family: 'icomoon' !important;
+			content: "\e916";
+			position: absolute;
+			right: 20px;
+			top: 50%;
+			transform: translateY(-50%);
+			font-size: 34px;
+			line-height: 1;
+			color: #494949;
+
+			@include media('<desktop') {
+				font-size: 26px;
+				right: 15px;
+			}
+
+			@include media('<tablet') {
+				right: 10px;
+				font-size: 20px;
+			}
+		}
+
+		&:hover {
+			background: darken(#f0f0f0, 10%);
+		}
+	}
+
+	.accordion-slide {
+		display: none;
+	}
+
+	.slide-text {
+		position: relative;
+		padding: 0 60px 30px 25px;
+		color: #494949;
+		font-size: 20px;
+
+		@include media('<desktop') {
+			padding: 0 45px 25px 20px;
+			font-size: 18px;
+		}
+
+		@include media('<tablet') {
+			font-size: 16px;
+			padding: 0 35px 20px 15px;
+		}
+
+		p {
+			letter-spacing: 0.5px;
+			margin: 0;
+
+			@include media('<tablet') {
+				letter-spacing: 0;
+			}
+		}
+	}
+}

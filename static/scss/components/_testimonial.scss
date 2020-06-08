@@ -1,0 +1,169 @@
+.block-testimonials {
+	position: relative;
+	overflow: hidden;
+	background: #E9E9E9;
+	padding: 60px 0;
+	text-align: center;
+
+	@include media('<widescreen') {
+		padding: 50px 0;
+	}
+
+	.h1 {
+		color: #081D4C;
+		margin: 0 0 35px;
+
+		@include media('<tablet') {
+			margin: 0 0 25px;
+		}
+	}
+
+	.slick-slider {
+		transform: translate(-7.6%, 0);
+		white-space: nowrap;
+		text-align: left;
+		margin: 0 0 70px;
+
+		@include media('<widescreen') {
+			transform: translate(-50%, 0);
+			margin: 0 0 40px;
+		}
+
+		@include media('<tablet') {
+			transform: none;
+			padding: 0 15px;
+		}
+	}
+	.slides {
+		position: relative;
+		.slick-prev, .slick-next {
+		  position: absolute;
+		  top: 50%;
+		}
+		.slick-prev {
+			left: 3% !important;
+			z-index: 1;
+			// background:url('/assests/images/left-arrow.png') no-repeat;
+		  }
+		  .slick-next {
+			right: -10% !important;
+			z-index: 1;
+			// background:url('/assests/images/right-arrow.png') no-repeat;
+		  }
+		  .slick-next::before {
+			color: black !important;
+		  }
+		  .slick-prev::before{
+			color: black !important;
+		  }
+		  .slick-list{
+			  overflow: visible !important;
+			  .slick-track{
+				.slick-slide{
+					width: 600px !important;
+					margin:0 1em !important;
+				}
+			  }
+		  }
+	  }
+	  
+	.slide {
+		display: inline-block;
+		vertical-align: top;
+		white-space: normal;
+		// margin: 0 30px;
+		width: 100% !important;
+		
+
+		@include media('<large') {
+			width: 40%;
+		}
+
+		@include media('<widescreen') {
+			width: 60%;
+		}
+
+		@include media('<tablet') {
+			width: calc(100% - 20px);
+			margin: 0 10px;
+		}
+	}
+
+	.btn {
+		min-width: 280px;
+
+		@include media('<tablet') {
+			min-width: 250px;
+		}
+	}
+
+	&.style01 {
+		background: $white;
+	}
+}
+
+.testimonials-section {
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	margin: -120px 0 0;
+	padding: 0 0 60px;
+	width: 100%;
+
+	@include media('<desktop') {
+		margin: -40px 0 0;
+	}
+
+	@include media('<tablet') {
+		margin: 0;
+		padding: 30px 0;
+	}
+
+	.btn-holder {
+		position: relative;
+		display: block;
+		text-align: center;
+	}
+
+	.btn {
+
+		@include media('>=tablet') {
+			min-width: 300px;
+		}
+	}
+}
+
+.testimonials-block-holder {
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	margin: 0 -20px;
+	padding: 0 0 25px;
+
+	@include media('<desktop') {
+		margin: 0 -15px;
+		padding: 0 0 20px;
+	}
+
+	@include media('<tablet') {
+		padding: 0 0 5px;
+	}
+
+	.block {
+		position: relative;
+		width: 50%;
+		padding: 0 20px;
+		margin: 0 0 50px;
+
+		@include media('<desktop') {
+			padding: 0 15px;
+			margin: 0 0 30px;
+		}
+
+		@include media('<tablet') {
+			width: 100%;
+			margin: 0 0 20px;
+		}
+	}
+}

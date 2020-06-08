@@ -1,0 +1,231 @@
+.form-message {
+	.field {
+		margin: 0 0 17px;
+
+		@include media('<tablet') {
+			margin: 0 0 10px;
+		}
+	}
+
+	label {
+		@include font-size(18px, 22px);
+
+		font-weight: 600;
+		display: inline-block;
+		vertical-align: top;
+		margin: 0 0 5px;
+	}
+
+	input[type="text"],
+	input[type="email"],
+	textarea {
+		@include font-size(18px, 22px);
+
+		border: 1px solid #8C8C8C;
+		box-shadow: none;
+		height: 79px;
+
+		@include media('<tablet') {
+			height: 50px;
+			padding: 10px;
+		}
+	}
+
+	textarea {
+		height: 171px;
+
+		@include media('<tablet') {
+			height: 110px;
+		}
+	}
+
+	input[type="submit"] {
+		width: 352px;
+		margin: 0 auto;
+		display: block;
+		box-shadow: 0 20px 70px #FF78AB;
+		margin: 30px auto 28px;
+		white-space: normal;
+
+		@include media('<tablet') {
+			width: 250px;
+			font-size: 16px;
+			padding: 20px 10px;
+		}
+	}
+}
+
+.form-booking {
+	position: relative;
+	color: #9E9E9E;
+
+	.price-info {
+		@include font-size(22px, 26px);
+
+		font-weight: 700;
+		display: flex;
+		align-items: center;
+		margin: 0 0 12px;
+
+		.price {
+			@include font-size(30px, 34px);
+
+			padding: 0 0 0 15px;
+			color: #FF51B3;
+		}
+	}
+
+	.promo-row {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		margin: 0 -10px 55px;
+
+		@include media('<tablet') {
+			margin: 0 -10px;
+		}
+
+		.col {
+			padding: 0 10px;
+			width: 50%;
+
+			@include media('<tablet') {
+				width: 100%;
+				margin: 0 0 15px;
+			}
+		}
+
+		.info-text {
+			@include font-size(16px, 24px);
+
+			font-weight: 600;
+			max-width: 294px;
+			display: block;
+		}
+	}
+
+	.row-fields {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		margin: 0 -10px 16px;
+
+		.col {
+			padding: 0 10px;
+			width: 50%;
+			margin: 0 0 25px;
+
+			@include media('<tablet') {
+				margin: 0 0 5px;
+				width: 100%;
+			}
+
+			&.full-width {
+				width: 100%;
+			}
+		}
+	}
+
+	label {
+		@include font-size(18px, 22px);
+
+		font-weight: 600;
+		display: inline-block;
+		vertical-align: top;
+		color: #A8A7A7;
+		margin: 0 0 16px;
+	}
+
+	input[type="text"],
+	input[type="email"],
+	input[type="password"],
+	input[type="number"],
+	input[type="tel"],
+	textarea {
+		height: 55px;
+		border: 1px solid #8C8C8C;
+		display: block;
+
+		@include media('<tablet') {
+			height: 45px;
+			padding: 10px;
+		}
+
+		&.w-small {
+			max-width: 303px;
+		}
+	}
+
+	textarea {
+		height: 110px;
+	}
+
+	.two-fields {
+		display: flex;
+		flex-direction: row;
+		margin: 0 -10px;
+
+		.field {
+			width: 50%;
+			padding: 0 10px;
+		}
+	}
+
+	.check-holder {
+		padding: 0 0 0 50px;
+		position: relative;
+		margin: 0 0 40px;
+
+		@include media('<tablet') {
+			padding: 0 0 0 35px;
+		}
+
+		input[type="checkbox"] {
+			opacity: 0;
+			visibility: hidden;
+			position: absolute;
+
+			&:checked {
+				+.fake-check {
+					&:after {
+						opacity: 1;
+						visibility: visible;
+					}
+				}
+			}
+		}
+
+		.fake-check {
+			@include size(29px);
+
+			background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(228,228,228,1) 100%);
+			border: 1px solid #C5C5C5;
+			position: absolute;
+			border-radius: 5px;
+			left: 0;
+			top: 50%;
+			transform: translate(0, -50%);
+
+			&:after {
+				position: absolute;
+				left: 8px;
+				top: 2px;
+				content: '';
+				border-top: 3px solid $pink;
+				border-left: 3px solid $pink;
+				width: 10px;
+				height: 20px;
+				transform: rotate(-135deg);
+				opacity: 0;
+				visibility: hidden;
+				transition: all 0.4s ease;
+			}
+		}
+	}
+
+	input[type="submit"] {
+		display: block;
+		white-space: normal;
+		font-size: 16px;
+	}
+}

@@ -1,0 +1,295 @@
+.block-event {
+	position: relative;
+	padding: 0 0 75px;
+
+	@include media('<widescreen') {
+		padding: 0 0 50px;
+	}
+
+	.container {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+}
+
+.event-section {
+	position: relative;
+	padding: 100px 0;
+
+	@include media('<desktop') {
+		padding: 60px 0;
+	}
+
+	@include media('<tablet') {
+		padding: 30px 0;
+	}
+
+	.wrap {
+		position: relative;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-start;
+		justify-content: space-between;
+
+		@include media('<tablet') {
+			display: block;
+		}
+	}
+
+	.description {
+		width: 54%;
+		padding: 50px 0 0;
+
+		@include media('<desktop') {
+			padding: 20px 0 0;
+		}
+
+		@include media('<tablet') {
+			width: 100%;
+			margin: 0 0 65px;
+		}
+
+		h2 {
+
+			@include media('>=xl') {
+				margin: 0 0 72px;
+			}
+		}
+	}
+
+	.image-holder {
+		position: relative;
+		width: 40%;
+
+		@include media('>=xl') {
+			margin: 22px -31px 0 0;
+			width: 42.9%;
+		}
+
+		@include media('<tablet') {
+			width: auto;
+			max-width: 400px;
+			margin: 0 auto;
+		}
+
+		img {
+			display: block;
+			width: 100%;
+			height: auto;
+		}
+	}
+
+	&.style01 {
+
+		@include media('>=widescreen') {
+			padding: 96px 0;
+		}
+	}
+}
+
+.events-info-section {
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	margin: -130px 0 0;
+	padding: 0 0 35px;
+	width: 100%;
+
+	@include media('<desktop') {
+		margin: -70px 0 0;
+	}
+
+	@include media('<desktop') {
+		padding: 0 0 20px;
+	}
+
+	@include media('<tablet') {
+		margin: 0;
+		padding: 50px 0 30px;
+	}
+
+	.events-list {
+		position: relative;
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0 -25px;
+
+		@include media('<widescreen') {
+			margin: 0 -15px;
+		}
+
+		li {
+			position: relative;
+			padding: 0 25px;
+			margin: 0 0 75px;
+			width: 33.333%;
+
+			@include media('<widescreen') {
+				padding: 0 15px;
+				margin: 0 0 50px;
+			}
+
+			@include media('<desktop') {
+				width: 50%;
+			}
+
+			@include media('<tablet') {
+				margin: 0 0 25px;
+			}
+
+			@include media('<phone') {
+				width: 100%;
+			}
+		}
+
+		.image-holder {
+			box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.16);
+			border-radius: 15px;
+			position: relative;
+			overflow: hidden;
+
+			@include media('<tablet') {
+				box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.16);
+				border-radius: 15px;
+			}
+
+			a {
+				display: block;
+
+				&:hover {
+					img {
+						transform: scale(1.05);
+					}
+				}
+			}
+
+			img {
+				width: 100%;
+				height: auto;
+				display: block;
+				transition: all 0.4s ease;
+			}
+		}
+
+		.description {
+			font-family: $source-font;
+			padding: 30px 0 0;
+
+			@include media('<widescreen') {
+				padding: 25px 0 0;
+			}
+
+			@include media('<tablet') {
+				padding: 20px 0 0;
+			}
+		}
+
+		.title {
+			font-size: 27px;
+			line-height: 1.1;
+			font-weight: 700;
+			color: #535353;
+			display: block;
+			margin: 0 0 14px;
+
+			@include media('<tablet') {
+				font-size: 20px;
+				margin: 0 0 10px;
+			}
+
+			a {
+				color: #535353;
+
+				&:hover {
+					color: #ff299d;
+				}
+			}
+		}
+
+		.text {
+			color: rgba(#535353, 0.61);
+			display: block;
+			font-size: 24px;
+			line-height: 1.1;
+			font-weight: 400;
+
+			@include media('<widescreen') {
+				font-size: 22px;
+			}
+
+			@include media('<tablet') {
+				font-size: 17px;
+			}
+		}
+	}
+}
+
+.event-location {
+	@include font-size(16px, 20px);
+
+	font-weight: 600;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	margin: 0 0 25px;
+
+	@include media('<tablet') {
+		margin: 0;
+	}
+
+	.col {
+		width: 57%;
+		padding: 0 0 0 50px;
+		position: relative;
+
+		@include media('<tablet') {
+			width: 100%;
+			margin: 0 0 30px;
+			padding: 0 0 0 45px;
+		}
+
+		&:first-child {
+			width: 43%;
+
+			@include media('<tablet') {
+				width: 100%;
+			}
+		}
+
+		.icon {
+			@include font-size(34px, 1);
+
+			color: #FF51B3;
+			position: absolute;
+			left: 0;
+			top: 50%;
+			transform: translate(0, -50%);
+
+			@include media('<tablet') {
+				font-size: 30px;
+			}
+		}
+	}
+
+	.heading {
+		@include font-size(22px, 26px);
+
+		font-weight: 600;
+		display: block;
+		margin: 0 0 10px;
+
+		@include media('<tablet') {
+			@include font-size(19px, 23px);
+			margin: 0 0 5px;
+		}
+	}
+
+	.time {
+		display: block;
+	}
+
+	address {
+		font-style: normal;
+	}
+}

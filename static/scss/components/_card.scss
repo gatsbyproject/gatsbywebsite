@@ -1,0 +1,72 @@
+.card-holder {
+	border: 2px solid rgba(#707070, 0.3);
+	box-shadow: 10px 10px 50px rgba(#000000, 0.05);
+	background: $white;
+	border-radius: 25px;
+	padding: 40px 25px;
+
+	@include media('<tablet') {
+		padding: 15px;
+		border-radius: 15px;
+	}
+
+	.list-ratings {
+		@include font-size(22px, 26px);
+
+		display: flex;
+		flex-direction: row;
+		margin: 0 -6px 20px;
+
+		@include media('<desktop') {
+			margin: 0 -6px 15px;
+		}
+
+		@include media('<tablet') {
+			@include font-size(20px, 24px);
+
+			margin: 0 -4px 10px;
+		}
+
+		li {
+			padding: 0 6px;
+
+			@include media('<tablet') {
+				padding: 0 4px;
+			}
+
+			&.active {
+				color: #FFC432;
+			}
+		}
+	}
+
+	blockquote {
+		margin: 0;
+
+		q {
+			@include font-size(18px, 30px);
+
+			font-weight: 500;
+			color: #494949;
+			display: block;
+			margin: 0 0 15px;
+
+			@include media('<tablet') {
+				@include font-size(16px, 24px);
+			}
+		}
+
+		cite {
+			@include font-size(18px, 24px);
+
+			display: block;
+			font-style: normal;
+			font-weight: 700;
+			color: #FF299D;
+
+			@include media('<tablet') {
+				@include font-size(14px, 20px);
+			}
+		}
+	}
+}

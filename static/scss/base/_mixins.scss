@@ -1,0 +1,85 @@
+// hide text
+@mixin hide-text {
+  overflow: hidden;
+  text-indent: -9999px;
+}
+
+@mixin img{
+  width: 100%;
+  height: auto;
+  vertical-align: top;
+}
+
+// alignment text
+@mixin alignment($value1: inline-block, $value2: top) {
+  display: $value1;
+  vertical-align: $value2;
+}
+
+@mixin font-size($value1, $value2: 1.25) {
+  font-size: $value1;
+  line-height: $value2;
+}
+
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin position-zero($value: 0){
+  top: $value;
+  left: $value;
+  right: $value;
+  bottom: $value;
+}
+
+// custom font mixin
+@mixin fontface ($fontfamily, $filename, $font-weight, $font-style) {
+ font-family: $fontfamily;
+ src:url('/static/fonts/#{$filename}.woff') format('woff'),
+   url('/static/fonts/#{$filename}.woff') format('woff2');
+ font-weight: $font-weight;
+ font-style: $font-style;
+}
+
+// placeholder
+@mixin placeholder {
+	&::-webkit-input-placeholder {@content}
+	&::-moz-placeholder {opacity: 1; @content}
+	&:-moz-placeholder {@content}
+	&:-ms-input-placeholder {@content}
+	&.placeholder {@content}
+}
+
+// bg-stretch
+@mixin bg-stretch{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+}
+//retina mixin
+@mixin img-retina($image, $extension, $width, $height) {
+  @media (min--moz-device-pixel-ratio: 1.3),
+  (-o-min-device-pixel-ratio: 2.6/2),
+  (-webkit-min-device-pixel-ratio: 1.3),
+  (min-device-pixel-ratio: 1.3),
+  (min-resolution: 1.3dppx) {
+   background-image: url('../images/' + $image + '-2x' + '.' + $extension);
+   background-size: $width $height;
+ }
+}
+
+//Font
+@mixin font($size: 16, $lineheight: 16, $weight:400) {
+  font-size: rem-calc($size);
+  line-height: rem-calc($lineheight);
+  font-weight: $weight;
+}
+
+@mixin fontsize($size: 16, $lineheight: 16) {
+  font-size: rem-calc($size);
+  line-height: rem-calc($lineheight);
+}
