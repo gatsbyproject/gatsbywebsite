@@ -6,7 +6,7 @@ const TestimonialsSecond = () => {
             <div className="top-container style03">
                 <Header image="/images/header/logo-white.svg" />
                 <div className="visual-area">
-                    <div className="container">
+                    <div className="container1">
                         <div className="visual-caption">
                             <h1>Our Clients Find Love On MatchDate</h1>
                         </div>
@@ -15,7 +15,7 @@ const TestimonialsSecond = () => {
             </div>
             <main className="main">
                 <div className="testimonials-section">
-                    <div className="container">
+                    <div className="container1">
                         <div className="testimonials-block-holder">
                             <div className="block">
                                 <div className="card-holder">

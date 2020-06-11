@@ -3,7 +3,7 @@ import React from 'react'
 const FeaturesMatchDate = () => {
     return (
         <div className="features-section">
-            <div className="container">
+            <div className="container1">
                 <div className="wrap">
                     <div className="description">
                         <h2>Reasons to Use MatchDate</h2>

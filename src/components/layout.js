@@ -6,7 +6,7 @@ import About from "./About/About"
 import Testimonial from './Testimonials/Testimonial'
 import { EventsHostDirectory, VirtualEvents } from "./Events/index"
 
-import "./layout.css"
+// import "./layout.css"
 
 const Layout = ({ children }) => {
 

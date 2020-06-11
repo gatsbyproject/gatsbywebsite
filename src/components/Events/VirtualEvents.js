@@ -4,7 +4,7 @@ const VirtualEvents = () => {
     return (
         <main className="main">
             <div className="event-section style01">
-                <div className="container">
+                <div className="container1">
                     <div className="wrap">
                         <div className="description">
                             <h2>Virtual <span>Events</span></h2>

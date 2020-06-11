@@ -148,22 +148,22 @@ const Header = ({ image }) => {
   return (
 
     <header className="header">
-      <div className="container">
+      <div className="container1">
         {/* LOGO */}
         <strong className="logo">
           <Link to="/"><img src={image} alt="MATCHDATE" /></Link>
         </strong>
         {/* END LOGO */}
-        <a className="nav-opener" onClick={handler()}></a>
+        <a href="#" className="nav-opener" onClick={handler()}></a>
         <div className="nav-drop">
           <ul className="menu">
             <li><Link to="/about">About Us</Link></li>
             <li><Link to="/events">Events</Link></li>
             <li><Link to="/event-host">Event Host Directory</Link></li>
             {/* <li><Link to="/event-calendar">Event Calendar</Link></li> */}
-            <li><Link to="/event-visual">Event Visual</Link></li>
+            {/* <li><Link to="/event-visual">Event Visual</Link></li> */}
             <li><Link to="/faq">FAQ</Link></li>
-            <li><Link to="/testimonial">Tes</Link></li>
+            <li><Link to="/testimonial">Testimonial</Link></li>
             {/* <li><a href="#">Registration and Events</a></li> */}
           </ul>
         </div>

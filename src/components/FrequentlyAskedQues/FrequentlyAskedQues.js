@@ -56,7 +56,7 @@ const FrequentlyAskedQues = () => {
             <div className="top-container style06">
                 <Header image="/images/header/logo-white.svg" />
                 <div className="visual-area">
-                    <div className="container">
+                    <div className="container1">
                         <div className="visual-caption">
                             <h1>Frequently Asked Questions</h1>
                         </div>
@@ -65,7 +65,7 @@ const FrequentlyAskedQues = () => {
             </div>
             <main className="main">
                 <div className="accordion-section">
-                    <div className="container">
+                    <div className="container1">
                         <ul className="accordion">
                             {faq.map((f1) => {
                                 return (

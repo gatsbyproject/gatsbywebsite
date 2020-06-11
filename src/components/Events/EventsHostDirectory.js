@@ -7,7 +7,7 @@ const EventsHostDirectory = () => {
             <div className="top-container style03">
                 <Header image="/images/header/logo-white.svg" />
                 <div className="visual-area">
-                    <div className="container">
+                    <div className="container1">
                         <div className="visual-caption">
                             <span className="symbol-icon">
                                 <img src="/images/events/symbol.svg" alt="symbol" />
@@ -21,7 +21,7 @@ const EventsHostDirectory = () => {
             </div>
             <main className="main" style={{ marginTop: '0em' }}>
                 <div className="member-section" style={{ padding: '0px' }}>
-                    <div className="container">
+                    <div className="container1">
                         <div className="member-list-holder">
                             <ul className="member-list">
                                 <li>

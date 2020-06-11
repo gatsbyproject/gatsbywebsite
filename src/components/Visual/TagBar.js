@@ -4,7 +4,7 @@ const TagBar = () => {
     return (
         <main className="main">
             <div className="tag-bar-area">
-                <div className="container">
+                <div className="container1">
                     <span className="text">True love doesn’t mean being inseparable.<br /> It means being separate and nothing changes.</span>
                 </div>
             </div>

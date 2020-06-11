@@ -1,0 +1,14 @@
+.block-recommendation {
+	position: relative;
+	padding: 35px 0 0;
+
+	@include media('<tablet') {
+		padding: 25px 0 0;
+	}
+
+	.h2 {
+		@include media('<tablet') {
+			margin: 0 0 15px;
+		}
+	}
+}

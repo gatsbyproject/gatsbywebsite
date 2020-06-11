@@ -4,7 +4,7 @@ const MatchBlock = () => {
     return (
         <main className="main">
             <div className="match-section">
-                <div className="container">
+                <div className="container1">
                     <div className="wrap">
                         <div className="image-holder">
                             <img src="/images/img7.png" alt="image-description" />

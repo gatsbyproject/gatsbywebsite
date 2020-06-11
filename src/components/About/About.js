@@ -4,7 +4,7 @@ const About = () => {
   return (
     <>
       <div className="visual-area">
-        <div className="container">
+        <div className="container1">
           <div className="visual-caption">
             <h1>About MatchDate</h1>
             <p>Utilizing state of the art artificial intelligence under the guidance of our event hosts, we create fun virtual matchmaking events, automating the speed dating process.</p>
