@@ -1,0 +1,13 @@
+{
+    "user": {
+        "flags": {},
+        "firstName": "rahul",
+        "lastName": "dueby",
+        "email": "rahul@gmail.com",
+        "phone": "1234567890",
+        "name": "rahul dueby",
+        "id": "36f97cc2-aa6b-9f7d-6af0-9c2269fd2643"
+    },
+    "verifyCode": 8539,
+    "sessionId": "68b0be91-3a35-2d29-83ba-e715dea50a66"
+}

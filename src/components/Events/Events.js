@@ -10,11 +10,60 @@ const Events = () => {
     useEffect(() => {
         const EventApi = async () => {
             const res = await axios.get('/getEvents')
-            getEvents(res.data.events)
+            const events = []
+            let count = 1
+            res.data.events.map(d1 => {
+                const host = {}
+                if (count == 1) {
+                    host['host'] = d1.host
+                    const event = d1
+                    delete event.host
+                    // console.log(event)
+                    host['event'] = [event]
+                    events.push(host)
+                } else {
+                    const check = events.find(f1 => f1.host.id === d1.host.id)
+                    if (check) {
+                        events.map(e1 => {
+                            if (e1.host.id === d1.host.id) {
+
+                                const event = { ...d1 }
+                                delete event.host
+                                e1.event.push(event)
+                                // console.log(e1.event.length)
+                            }
+                        })
+                    } else {
+                        host['host'] = d1.host
+                        const event = { ...d1 }
+                        delete event.host
+                        // console.log(event)
+                        host['event'] = [event]
+                        events.push(host)
+                    }
+                }
+                count++
+                // console.log(events.length)
+            })
+            console.log(events, '3')
+            console.log(events.length)
+            getEvents(events)
         }
         EventApi()
     }, [])
     console.log(vidRef)
+    const formatAMPM = (date) => {
+        var date = new Date(date);
+        var hours = date.getHours();
+        var minutes = date.getMinutes();
+        var ampm = hours >= 12 ? 'pm' : 'am';
+        hours = hours % 12;
+        hours = hours ? hours : 12; // the hour '0' should be '12'
+        minutes = minutes < 10 ? '0' + minutes : minutes;
+        var strTime = hours + ':' + minutes + ' ' + ampm;
+        return strTime;
+    }
+
     return (
         <>
             <Header image="/images/header/logo.svg" />
@@ -56,7 +105,6 @@ const Events = () => {
                                                         )
                                                     )
                                                 }
-
                                                 <p>lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis</p>
                                                 <ul className="list-detail">
                                                     <li>
@@ -70,40 +118,42 @@ const Events = () => {
 
                                             <div className="col-right">
                                                 <h1 className="h2">Events by {`${e1.host.firstName} ${e1.host.lastName}`}:</h1>
-                                                <article className="article-card">
-                                                    <div className="image-holder">
-                                                        <a href="#"><img src="/images/events/img2.jpg" alt="image description" /></a>
-                                                    </div>
-                                                    <div className="text-holder">
-                                                        <h2 className="h3"><a href="#">Master Dating for Travellers</a></h2>
-                                                        <p>"Dating for the world travaller"</p>
-                                                        <ul className="list-detail">
-                                                            <li><i className="icon icon-calendar"></i>April, 24th, 2020 at 6:30PM-7:30PM</li>
-                                                            <li><i className="icon icon-location"></i>Chicago, IL</li>
-                                                        </ul>
-                                                        <div className="more-info">
-                                                            <span className="tickets">3 Tickets Left</span>
-                                                            <span className="duration">90 mins</span>
-                                                        </div>
-                                                    </div>
-                                                </article>
-                                                <article className="article-card">
-                                                    <div className="image-holder">
-                                                        <a href="#"><img src="/images/events/img4.jpg" alt="image description" /></a>
-                                                    </div>
-                                                    <div className="text-holder">
-                                                        <h2 className="h3"><a href="#">Master Dating for Travellers</a></h2>
-                                                        <p>"Dating for the world travaller"</p>
-                                                        <ul className="list-detail">
-                                                            <li><i className="icon icon-calendar"></i>April, 24th, 2020 at 6:30PM-7:30PM</li>
-                                                            <li><i className="icon icon-location"></i>Chicago, IL</li>
-                                                        </ul>
-                                                        <div className="more-info">
-                                                            <span className="tickets">3 Tickets Left</span>
-                                                            <span className="duration">90 mins</span>
-                                                        </div>
-                                                    </div>
-                                                </article>
+                                                {
+                                                    e1.event.map(e2 => {
+
+                                                        const startTime = formatAMPM(e2.eventStartTime)
+                                                        const endTime = formatAMPM(e2.eventEndTime)
+                                                        const monthNames = ["January", "February", "March", "April", "May", "June",
+                                                            "July", "August", "September", "October", "November", "December"
+                                                        ];
+                                                        const date = new Date(e2.eventStartTime)
+                                                        const year = date.getUTCFullYear()
+                                                        const month = monthNames[date.getUTCMonth() + 1]
+                                                        const datee = date.getUTCDate()
+                                                        var dif = (new Date(e2.eventEndTime) - new Date(e2.eventStartTime)) / 1000 / 60;
+                                                        return (
+                                                            <article className="article-card">
+                                                                <div className="image-holder">
+                                                                    <a href="#"><img src={e2.headerImage} alt="image description" /></a>
+                                                                </div>
+                                                                <div className="text-holder">
+                                                                    <h2 className="h3"><a href="#">{e2.title}</a></h2>
+                                                                    <p>{e2.slogan}</p>
+                                                                    <ul className="list-detail">
+                                                                        <li><i className="icon icon-calendar"></i>{`${month}, ${datee}th, ${year} at ${startTime}-${endTime}`}</li>
+                                                                        <li><i className="icon icon-location"></i>
+                                                                            {e1.host.timezone.replace('/', ', ')}
+                                                                        </li>
+                                                                    </ul>
+                                                                    <div className="more-info">
+                                                                        <span className="tickets">3 Tickets Left</span>
+                                                                        <span className="duration">{dif} mins</span>
+                                                                    </div>
+                                                                </div>
+                                                            </article>
+                                                        )
+                                                    })
+                                                }
                                             </div>
                                         </Fragment>
                                     )
