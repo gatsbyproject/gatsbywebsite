@@ -7,7 +7,7 @@ import Testimonial from '../Testimonials/Testimonial'
 import { Link } from 'gatsby'
 import { Player, BigPlayButton } from 'video-react'
 import "./video-react.css";
-import '../../../static/css/main.css'
+
 import Select from 'react-select'
 const Event = (props) => {
     let thisYear = (new Date()).getFullYear();

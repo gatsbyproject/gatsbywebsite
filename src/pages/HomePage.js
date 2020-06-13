@@ -16,10 +16,11 @@ const HomePage = () => {
             <MatchBlock />
             <TagBar />
             <VirtualEvents />
-            <Testimonial />
+            {/* <Testimonial /> */}
             <Footer />
         </div>
     )
 }
+
 
 export default HomePage

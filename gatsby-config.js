@@ -7,6 +7,7 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -28,9 +29,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sass`,
       options: {
-        data: '@import "main.scss";',
+        data: '@import "index.scss";',
         includePaths: [
-          './static/scss',
+          './src/pages',
         ]
       }
     },

@@ -22,4 +22,5 @@ const eventReducer = (state = INITIAL_STATE, action) => {
     }
 }
 
+
 export default eventReducer

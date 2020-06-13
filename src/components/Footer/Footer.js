@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from 'gatsby'
 const Footer = () => {
     return (
 
@@ -10,11 +10,9 @@ const Footer = () => {
                         <a href="#"><img src="/images/footer/logo-white.svg" alt="MATCHDATE" /></a>
                     </strong>
                     <ul className="social-networks">
-                        <li><a href="#"><i className="icon icon-facebook"></i></a></li>
-                        <li><a href="#"><i className="icon icon-twitter"></i></a></li>
-                        <li><a href="#"><i className="icon icon-linkedin"></i></a></li>
-                        <li><a href="#"><i className="icon icon-instagram"></i></a></li>
-                        <li><a href="#"><i className="icon icon-youtube"></i></a></li>
+                        <li><a href="https://www.facebook.com/MatchDateEvents?utm_source=matchdate_website&utm_medium=site_footer&utm_campaign=generic" target="_blank"><i className="icon icon-facebook"></i></a></li>
+                        <li><a href="https://twitter.com/MatchDateEvents?utm_source=matchdate_website&utm_medium=site_footer&utm_campaign=generic" target="_blank"><i className="icon icon-twitter"></i></a></li>
+                        <li><a href="https://www.instagram.com/MatchDateEvents/?utm_source=matchdate_website&utm_medium=site_footer&utm_campaign=generic" target="_blank"><i className="icon icon-instagram"></i></a></li>
                     </ul>
                 </div>
                 <div className="three-cols">
@@ -30,16 +28,14 @@ const Footer = () => {
                         </ul>
                     </div>
                     <div className="col-links">
-                        <strong className="title">About us</strong>
                         <ul className="footer-links">
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Why Us?</a></li>
-                            <li><a href="#">FAQ</a></li>
-                            <li><a href="#">Terms Of Service</a></li>
-                            <li><a href="#">App</a></li>
-                            <li><a href="#">Contact US</a></li>
-                            <li><a href="#">Community</a></li>
-                            <li><a href="#">Help</a></li>
+                            <li><Link to="/about">About Us</Link></li>
+                            <li><Link to="#">Why Us?</Link></li>
+                            <li><Link to="/faq">FAQ</Link></li>
+                            <li><Link to="#">Terms Of Service</Link></li>
+                            <li><Link to="#">Contact US</Link></li>
+                            <li><Link to="#">Help</Link></li>
+                            <li><Link to="/testimonial">Testimonial</Link></li>
                         </ul>
                     </div>
                     <div className="col-form">
