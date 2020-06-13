@@ -6,6 +6,7 @@
 
 // You can delete this file if you're not using it
 import './static/css/main.css'
+export { default as wrapRootElement } from './src/redux/store';
 const $ = require("jquery")
 export const onInitialClientRender = () => {
     $(document).ready(function () {

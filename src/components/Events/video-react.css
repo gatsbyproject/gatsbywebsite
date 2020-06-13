@@ -36,6 +36,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+
 .video-react-icon-play-arrow:before, .video-react .video-react-bezel .video-react-bezel-icon-play:before, .video-react .video-react-play-control:before, .video-react .video-react-big-play-button:before {
   font-family: 'icomoon' !important;
   content: "\e902";
@@ -43,9 +44,11 @@
   color: deeppink;
     position: relative;
     display: block;
-  font-size: 28px;
+  font-size: 35px;
     line-height: 49px;
 }
+
+
 
 .video-react-icon-play-circle-filled:before {
   content: "";
@@ -265,7 +268,7 @@ body.video-react-full-window .video-react-fullscreen {
 }
 
 .video-react button {
-  background: none;
+  background: white;
   border: none;
   color: inherit;
   display: inline-block;

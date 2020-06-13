@@ -7,6 +7,8 @@
 // You can delete this file if you're not using it
 const React = require("react")
 
+export { default as wrapRootElement } from './src/redux/store';
+
 export const onRenderBody = ({ setHeadComponents }, pluginOptions) => {
     setHeadComponents([
         <meta charSet="utf-8"></meta>,

@@ -4,7 +4,7 @@ import FeaturesMatchDate from './FeaturesMatchDate'
 import EventsCalendar from './EventsCalendar'
 import EventHostVisual from './EventHostVisual'
 import Events from './Events'
-
+import Event from './Event'
 
 export {
     EventsHostDirectory,
@@ -12,5 +12,6 @@ export {
     FeaturesMatchDate,
     EventsCalendar,
     EventHostVisual,
-    Events
+    Events,
+    Event
 }

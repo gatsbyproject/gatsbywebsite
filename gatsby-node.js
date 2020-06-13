@@ -26,3 +26,4 @@ exports.onCreateWebpackConfig = ({ getConfig, stage, actions, loaders }) => {
         })
     }
 }
+

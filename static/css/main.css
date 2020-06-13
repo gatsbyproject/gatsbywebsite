@@ -2678,13 +2678,14 @@ input[type="submit"] {
 	margin: 0 -10px 16px;
 }
 
-.form-booking .row-fields .col {
+.form-booking .row-fields .col1 {
+	/* flex-basis: 1 !important; */
 	padding: 0 10px;
 	width: 50%;
 	margin: 0 0 25px;
 }
 
-.form-booking .row-fields .col.full-width {
+.form-booking .row-fields .col1.full-width {
 	width: 100%;
 }
 
@@ -2703,12 +2704,18 @@ input[type="submit"] {
 .form-booking input[type="password"],
 .form-booking input[type="number"],
 .form-booking input[type="tel"],
+
 .form-booking textarea {
 	height: 55px;
 	border: 1px solid #8c8c8c;
 	display: block;
 }
-
+.form-message .expiry1{
+	height: 55px;
+	border: 1px solid #8c8c8c;
+	display: block;
+	max-width: 303px;
+}
 .form-booking input[type="text"].w-small,
 .form-booking input[type="email"].w-small,
 .form-booking input[type="password"].w-small,
@@ -2836,8 +2843,8 @@ input[type="submit"] {
 }
 
 .resize-active * {
-	-webkit-transition: none !important;
-	transition: none !important;
+	-webkit-transition: none;
+	transition: none;
 }
 
 body {
@@ -3011,8 +3018,8 @@ a {
 }
 
 .btn-play {
-	width: 77px;
-	height: 77px;
+	width: 19px;
+	height: 83px;
 	background: #fff;
 	border-radius: 100%;
 	position: absolute;
@@ -4905,8 +4912,8 @@ a {
 	}
 
 	.form-booking .row-fields .col {
-		margin: 0 0 5px;
-		width: 100%;
+		margin: 0 0 5px !important;
+		width: 100% !important;
 	}
 
 	.form-booking input[type="text"],

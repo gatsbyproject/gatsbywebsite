@@ -4,7 +4,7 @@ import jQuery from 'jquery'
 const Header = ({ image }) => {
   const handler = () => {
     if (typeof window !== `undefined`) {
-      console.log('ff')
+      //console.log('ff')
       jQuery(function () {
         initMobileNav();
       });
@@ -16,7 +16,7 @@ const Header = ({ image }) => {
           hideOnClickOutside: true,
           menuDrop: '.nav-drop'
         });
-        console.log('1')
+        //console.log('1')
       }
       /*
        * Simple Mobile Navigation
@@ -41,12 +41,12 @@ const Header = ({ image }) => {
             this.container = $(this.options.container);
             this.opener = this.container.find(this.options.menuOpener);
             this.drop = this.container.find(this.options.menuDrop);
-            console.log(this.container.find(this.options.menuOpener))
-            console.log(typeof (this.container))
+            //console.log(this.container.find(this.options.menuOpener))
+            //console.log(typeof (this.container))
           },
           attachEvents: function () {
             var self = this;
-            console.log('3')
+            //console.log('3')
             if (activateResizeHandler) {
               activateResizeHandler();
               activateResizeHandler = null;
@@ -97,7 +97,7 @@ const Header = ({ image }) => {
             this.container.removeClass(this.options.menuActiveClass);
             this.opener.off(this.options.toggleEvent, this.clickHandler);
             this.page.off(this.options.outsideClickEvent, this.outsideClickHandler);
-            console.log(this.container)
+            //console.log(this.container)
           }
         };
 
@@ -122,7 +122,7 @@ const Header = ({ image }) => {
         };
 
         $.fn.mobileNav = function (opt) {
-          console.log(opt)
+          //console.log(opt)
           var args = Array.prototype.slice.call(arguments);
           var method = args[0];
 

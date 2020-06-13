@@ -31,5 +31,10 @@ module.exports = [
     {
         path: '/events',
         component: path.resolve(`src/pages/EventsPage.js`)
+    },
+    {
+        path: '/hostEvent',
+        matchPath: '/hostEvent/:id',
+        component: path.resolve(`src/components/Events/Event.js`)
     }
 ]

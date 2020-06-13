@@ -1,55 +1,17 @@
 import React, { useEffect, useState, Fragment, useRef } from 'react'
+import { Link } from "gatsby"
 import Header from '../Header/Header'
-import axios from '../../../config/axios'
 import { Player, BigPlayButton } from 'video-react'
 import "./video-react.css";
-const Events = () => {
+import { connect } from "react-redux";
+import { getEvents } from '../../redux/Events/events.action'
+const Events = (props) => {
     const [events, getEvents] = useState([])
     const vidRef = useRef(null)
     const [show, setShow] = useState(false)
-    useEffect(() => {
-        const EventApi = async () => {
-            const res = await axios.get('/getEvents')
-            const events = []
-            let count = 1
-            res.data.events.map(d1 => {
-                const host = {}
-                if (count == 1) {
-                    host['host'] = d1.host
-                    const event = d1
-                    delete event.host
-                    // console.log(event)
-                    host['event'] = [event]
-                    events.push(host)
-                } else {
-                    const check = events.find(f1 => f1.host.id === d1.host.id)
-                    if (check) {
-                        events.map(e1 => {
-                            if (e1.host.id === d1.host.id) {
 
-                                const event = { ...d1 }
-                                delete event.host
-                                e1.event.push(event)
-                                // console.log(e1.event.length)
-                            }
-                        })
-                    } else {
-                        host['host'] = d1.host
-                        const event = { ...d1 }
-                        delete event.host
-                        // console.log(event)
-                        host['event'] = [event]
-                        events.push(host)
-                    }
-                }
-                count++
-                // console.log(events.length)
-            })
-            console.log(events, '3')
-            console.log(events.length)
-            getEvents(events)
-        }
-        EventApi()
+    useEffect(() => {
+        getEvents(props.event.events)
     }, [])
     console.log(vidRef)
     const formatAMPM = (date) => {
@@ -63,7 +25,7 @@ const Events = () => {
         var strTime = hours + ':' + minutes + ' ' + ampm;
         return strTime;
     }
-
+    console.log(props, 'g')
     return (
         <>
             <Header image="/images/header/logo.svg" />
@@ -132,12 +94,12 @@ const Events = () => {
                                                         const datee = date.getUTCDate()
                                                         var dif = (new Date(e2.eventEndTime) - new Date(e2.eventStartTime)) / 1000 / 60;
                                                         return (
-                                                            <article className="article-card">
+                                                            <article className="article-card" key={e1}>
                                                                 <div className="image-holder">
                                                                     <a href="#"><img src={e2.headerImage} alt="image description" /></a>
                                                                 </div>
                                                                 <div className="text-holder">
-                                                                    <h2 className="h3"><a href="#">{e2.title}</a></h2>
+                                                                    <h2 className="h3"><Link to={`/hostEvent/${e2.id}`}>{e2.title}</Link></h2>
                                                                     <p>{e2.slogan}</p>
                                                                     <ul className="list-detail">
                                                                         <li><i className="icon icon-calendar"></i>{`${month}, ${datee}th, ${year} at ${startTime}-${endTime}`}</li>
@@ -161,67 +123,7 @@ const Events = () => {
                             )
                         }
 
-                        {/* <div className="col-left">
-                            <div className="profile-info">
-                                <div className="image-holder">
-                                    <img src="/images/events/img-girl.jpg" alt="image description" />
-                                </div>
-                                <blockquote>
-                                    <cite>Host Name</cite>
-                                    <q>“Some really great quote"</q>
-                                </blockquote>
-                            </div>
-                            <div className="video-area">
-                                <a href="#" className="btn-play"><i className="icon icon-play"></i></a>
-                                <img src="/images/events/img1.jpg" alt="image description" />
-                            </div>
-                            <p>lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis</p>
-                            <ul className="list-detail">
-                                <li>
-                                    <strong className="title">Home City:</strong>
-                                    <span className="text">Chicago, IL</span>
-                                </li>
-                            </ul>
-                            <a href="#" className="btn btn-secondary">Try A MatchDate Event</a>
-                        </div>
-                        <div className="col-right">
-                            <h1 className="h2">Events by Jamie:</h1>
-                            <article className="article-card">
-                                <div className="image-holder">
-                                    <a href="#"><img src="/images/events/img2.jpg" alt="image description" /></a>
-                                </div>
-                                <div className="text-holder">
-                                    <h2 className="h3"><a href="#">Master Dating for Travellers</a></h2>
-                                    <p>"Dating for the world travaller"</p>
-                                    <ul className="list-detail">
-                                        <li><i className="icon icon-calendar"></i>April, 24th, 2020 at 6:30PM-7:30PM</li>
-                                        <li><i className="icon icon-location"></i>Chicago, IL</li>
-                                    </ul>
-                                    <div className="more-info">
-                                        <span className="tickets">3 Tickets Left</span>
-                                        <span className="duration">90 mins</span>
-                                    </div>
-                                </div>
-                            </article>
-                            <article className="article-card">
-                                <div className="image-holder">
-                                    <a href="#"><img src="/images/events/img4.jpg" alt="image description" /></a>
-                                </div>
-                                <div className="text-holder">
-                                    <h2 className="h3"><a href="#">Master Dating for Travellers</a></h2>
-                                    <p>"Dating for the world travaller"</p>
-                                    <ul className="list-detail">
-                                        <li><i className="icon icon-calendar"></i>April, 24th, 2020 at 6:30PM-7:30PM</li>
-                                        <li><i className="icon icon-location"></i>Chicago, IL</li>
-                                    </ul>
-                                    <div className="more-info">
-                                        <span className="tickets">3 Tickets Left</span>
-                                        <span className="duration">90 mins</span>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                     */}
+
                     </div>
                     <div className="popup-holder">
                         <div className="popup-frame">
@@ -252,7 +154,12 @@ const Events = () => {
             </main>
 
         </>
+
     )
 }
-
-export default Events
+const mapStatetoProps = state => {
+    return {
+        event: state.event
+    };
+};
+export default connect(mapStatetoProps, { getEvents })(Events)
