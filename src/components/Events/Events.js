@@ -37,9 +37,9 @@ const Events = (props) => {
                                 (
                                     <div>Loading</div>
                                 ) :
-                                events.map(e1 => {
+                                events.map((e1, e) => {
                                     return (
-                                        <Fragment key={e1.id}>
+                                        <Fragment key={e}>
                                             <div className="col-left">
                                                 <div className="profile-info">
                                                     <div className="image-holder">
@@ -94,7 +94,7 @@ const Events = (props) => {
                                                         const datee = date.getUTCDate()
                                                         var dif = (new Date(e2.eventEndTime) - new Date(e2.eventStartTime)) / 1000 / 60;
                                                         return (
-                                                            <article className="article-card" key={e1}>
+                                                            <article className="article-card" key={e2.id}>
                                                                 <div className="image-holder">
                                                                     <a href="#"><img src={e2.headerImage} alt="image description" /></a>
                                                                 </div>
