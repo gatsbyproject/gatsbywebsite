@@ -6,7 +6,7 @@ const FAQPage = () => {
     return (
         <div id="wrapper">
             <FrequentlyAskedQues />
-            <Testimonial />
+            {/* <Testimonial /> */}
             <Footer />
         </div>
     )

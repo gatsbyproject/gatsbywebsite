@@ -351,7 +351,7 @@ const Event = (props) => {
                     </div>
                 </section>
             </main>
-            <Testimonial />
+            {/* <Testimonial /> */}
             <Footer />
         </div>
 
