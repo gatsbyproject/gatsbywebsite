@@ -6,11 +6,11 @@ const EventUpcoming = () => {
             <div className="upcoming-area">
                 <form action="#" className="heading-block">
                     <h2>Upcoming <br /><span>Virtual Events</span></h2>
-                    <div className="calender-field">
+                    {/* <div className="calender-field">
                         <input type="text" id="calender" placeholder="Thursday, 14 May 2020" />
                         <label htmlFor="calender"><i className="icon-calendar1"></i></label>
-                    </div>
-                    <a href="#" className="btn">Try A MatchDate Event</a>
+                    </div> */}
+                    <a href="#" className="btn">Find A MatchDate Event</a>
                 </form>
                 <ul className="events-list">
                     <li>

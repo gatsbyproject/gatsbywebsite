@@ -2,7 +2,7 @@ import React, { useEffect, useState, Fragment, useRef } from 'react'
 import { Link } from "gatsby"
 import Header from '../Header/Header'
 import { Player, BigPlayButton } from 'video-react'
-import "./video-react.css";
+import "./video.css";
 import { connect } from "react-redux";
 import { getEvents } from '../../redux/Events/events.action'
 const Events = (props) => {
@@ -25,7 +25,7 @@ const Events = (props) => {
         var strTime = hours + ':' + minutes + ' ' + ampm;
         return strTime;
     }
-    console.log(props, 'g')
+
     return (
         <>
             <Header image="/images/header/logo.svg" />
@@ -58,7 +58,7 @@ const Events = (props) => {
                                                                     poster={`${e1.host.hostProfile.introVideo.thumbnail}`}
                                                                     src={`${e1.host.hostProfile.introVideo.video}`}
                                                                 >
-                                                                    <BigPlayButton position="center" className="btn-play" />
+                                                                    <BigPlayButton position="center" />
                                                                 </Player>
                                                             </div>
                                                         ) :
@@ -74,7 +74,7 @@ const Events = (props) => {
                                                         <span className="text">{e1.host.timezone}</span>
                                                     </li>
                                                 </ul>
-                                                <a href="#" className="btn btn-secondary">Try A MatchDate Event</a>
+                                                <a href="#" className="btn btn-secondary">Find A MatchDate Event</a>
                                             </div>
 
 

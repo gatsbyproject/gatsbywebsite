@@ -1,0 +1,6 @@
+[
+    {
+        "path": "/hostEvent",
+        "matchPath": "/hostEvent/:id"
+    }
+]

@@ -1,5 +1,6 @@
 import React from 'react'
 import Header from '../Header/Header'
+import { Link } from 'gatsby'
 const EventsHostDirectory = () => {
     return (
         <>
@@ -14,7 +15,7 @@ const EventsHostDirectory = () => {
                             </span>
                             <h1>Event Host Directory</h1>
                             <p>Event Hosts are your go-to resource for MatchDate events. Event Hosts will engage and interact to make sure all attendees are comfortable and confident during all events.<br /> Meet your Event Host here!</p>
-                            <a href="#" className="btn">Find Host</a>
+                            <Link to="/events" className="btn">Find Host</Link>
                         </div>
                     </div>
                 </div>

@@ -5,12 +5,12 @@ const EventHostVisual = () => {
     return (
         <>
             <div className="top-container style02">
-                <Header image="images/header/logo-white.svg" />
+                <Header image="/images/header/logo-white.svg" />
                 <div className="visual-area">
                     <div className="container1">
                         <div className="visual-holder">
                             <div className="image-holder">
-                                <img src="images/events/img12.png" alt="image-description" />
+                                <img src="/images/events/img12.png" alt="image-description" />
                             </div>
                             <div className="visual-caption">
                                 <h1>Find Your Soulmate</h1>
@@ -28,8 +28,8 @@ const EventHostVisual = () => {
                         <div className="video-holder">
                             <strong className="video-title">Get matched with your perfect date during one of our vetted virtual speed dating events.</strong>
                             <div className="video-frame">
-                                <img src="images/events/img13.png" alt="image-description" />
-                                <a href="#" className="btn-play"><i className="icon icon-play"></i></a>
+                                <img src="/images/events/img13.png" alt="image-description" />
+                                {/* <a href="#" className="btn-play"><i className="icon icon-play"></i></a> */}
                             </div>
                         </div>
                         <div className="text-area">

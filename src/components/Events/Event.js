@@ -108,7 +108,7 @@ const Event = (props) => {
                                                                 poster={`${event.host.hostProfile.introVideo.thumbnail}`}
                                                                 src={`${event.host.hostProfile.introVideo.video}`}
                                                             >
-                                                                <BigPlayButton position="center" className="btn-play" />
+                                                                <BigPlayButton position="center" />
                                                             </Player>
                                                         </div>
                                                     ) :

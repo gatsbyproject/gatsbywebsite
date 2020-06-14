@@ -6,7 +6,7 @@ const EventsPage = () => {
     return (
         <div id="wrapper">
             <Events />
-            <Testimonial />
+            {/* <Testimonial /> */}
             <Footer />
         </div>
     )
