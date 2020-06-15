@@ -30,7 +30,7 @@ module.exports = [
     },
     {
         path: '/events',
-        component: path.resolve(`src/pages/EventsPage.js`)
+        component: path.resolve(`src/pages/EventCalendarPage.js`)
     },
     {
         path: '/hostEvent',

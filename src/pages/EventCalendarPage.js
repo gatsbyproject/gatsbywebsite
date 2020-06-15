@@ -7,7 +7,7 @@ const EventCalendarPage = () => {
         <div id="wrapper">
 
             <EventsCalendar />
-            <Testimonial />
+            {/* <Testimonial /> */}
             <Footer />
         </div>
     )

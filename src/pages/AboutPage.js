@@ -4,6 +4,7 @@ import Footer from "../components/Footer/Footer"
 import About from "../components/About/About"
 import Testimonial from '../components/Testimonials/Testimonial'
 import { VirtualEvents } from "../components/Events/index"
+
 const AboutPage = () => {
     return (
         <div id="wrapper">

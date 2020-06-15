@@ -16,6 +16,15 @@ const Events = (props) => {
         if (props.eId) {
             const allEvents = props.event.events.filter(e1 => e1.host.id === props.eId)
             getEvents(allEvents)
+        } else if (props.hostID) {
+            const allEvents = props.event.events.filter(e1 => e1.host.id === props.hostID).map(e1 => {
+                const eventIid = e1.event.filter(e2 => e2.id === props.eventID)
+                console.log(eventIid, 'kkkk')
+                e1["event"] = eventIid
+                return e1
+            })
+
+            getEvents(allEvents)
         } else {
             getEvents(props.event.events)
         }
