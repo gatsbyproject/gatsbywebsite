@@ -4,7 +4,6 @@ import Footer from "../components/Footer/Footer"
 import { Visual, MatchBlock, TagBar } from '../components/Visual/index'
 import Testimonial from '../components/Testimonials/Testimonial'
 import { VirtualEvents } from "../components/Events/index"
-// import image from '../static/images/header/logo-white.svg'
 const HomePage = () => {
 
     return (
@@ -14,6 +13,7 @@ const HomePage = () => {
                 <Visual />
             </div>
             <MatchBlock />
+
             <TagBar />
             <VirtualEvents />
             {/* <Testimonial /> */}

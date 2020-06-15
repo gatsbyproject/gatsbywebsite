@@ -6,7 +6,7 @@ const EventHost = () => {
     return (
         <div id="wrapper">
             <EventsHostDirectory />
-            <Testimonial />
+            {/* <Testimonial /> */}
             <Footer />
         </div>
     )

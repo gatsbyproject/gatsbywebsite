@@ -163,11 +163,11 @@ const Header = ({ image }) => {
           <ul className="menu">
             <li><Link to="/about">About Us</Link></li>
             <li><Link to="/events">Events</Link></li>
-            <li><Link to="/event-host">Event Host Directory</Link></li>
+            <li><Link to="/event-host">Event Hosts</Link></li>
             {/* <li><Link to="/event-calendar">Event Calendar</Link></li> */}
             {/* <li><Link to="/event-visual">Event Visual</Link></li> */}
             <li><Link to="/faq">FAQ</Link></li>
-            <li><Link to="/testimonial">Testimonial</Link></li>
+            <li><Link to="/testimonial">Testimonials</Link></li>
             {/* <li><a href="#">Registration and Events</a></li> */}
           </ul>
         </div>

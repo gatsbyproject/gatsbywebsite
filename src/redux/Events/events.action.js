@@ -10,6 +10,7 @@ export const setApiEvents = (data) => ({
 })
 export const getEvents = () => {
     return async (dispatch) => {
+        console.log('getEvents')
         const res = await axios.get('/getEvents')
         const data = [...res.data.events]
 
