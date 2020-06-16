@@ -26,7 +26,7 @@ const EventsCalendar = (props) => {
                             <div className="top-container style04">
                                 <Header image="/images/header/logo-white.svg" />
                                 <div className="visual-area">
-                                    <div className="container1">
+                                    <div className="container1" style={{ marginBottom: '12em' }}>
                                         <div className="visual-caption">
                                             <span className="symbol-icon">
                                                 <img src="images/calendar/symbol.svg" alt="symbol" />
