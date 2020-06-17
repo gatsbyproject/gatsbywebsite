@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'gatsby'
 
 const FeaturesMatchDate = () => {
     return (
@@ -13,7 +14,7 @@ const FeaturesMatchDate = () => {
                             <li>Connect with singles matching your interest in your hometown and across the globe</li>
                             <li>Our Amazing Event Hosts and Your Real Time Feedback Expertly Guide Your Event Experience</li>
                         </ul>
-                        <a href="#" className="btn">Try A MatchDate Event</a>
+                        <Link to="/events" className="btn">Try A MatchDate Event</Link>
                     </div>
                     <div className="image-holder">
                         <img src="/images/events/img19.png" alt="image-description" />

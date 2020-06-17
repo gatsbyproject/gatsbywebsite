@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[13],{vq8O:function(e,n,t){"use strict";t.r(n);var a=t("q1tI"),r=t.n(a),c=t("CN8t"),l=(t("5vxV"),t("wrE1"));n.default=function(){return r.a.createElement("div",{id:"wrapper"},r.a.createElement(l.c,null),r.a.createElement(c.a,null))}}}]);
-//# sourceMappingURL=component---src-pages-events-page-js-5e394524b18ee83785f4.js.map

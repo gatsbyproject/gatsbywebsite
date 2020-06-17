@@ -13,8 +13,8 @@ const Events = (props) => {
     var id = localStorage.getItem('eventId')
     const [idShow, setId] = useState(false)
     useEffect(() => {
-        if (props.eId) {
-            const allEvents = props.event.events.filter(e1 => e1.host.id === props.eId)
+        if (props.id) {
+            const allEvents = props.event.events.filter(e1 => e1.host.id === props.id)
             getEvents(allEvents)
         } else if (props.hostID) {
             const allEvents = props.event.events.filter(e1 => e1.host.id === props.hostID).map(e1 => {
@@ -46,128 +46,131 @@ const Events = (props) => {
 
     return (
         <>
-            <Header image="/images/header/logo.svg" />
-            <main className="main">
-                <section className="block-event">
-                    <div className="container1">
-                        {
-                            (events.length === 0 ?
-                                (
-                                    <div>Loading</div>
-                                ) : idShow ? (<Event iD={id} />) :
-                                    events.map((e1, e) => {
-                                        return (
-                                            <Fragment key={e}>
-                                                <div className="col-left">
-                                                    <div className="profile-info">
-                                                        <div className="image-holder">
-                                                            <img src={e1.host.avatar} alt="image description" />
+            <div id="wrapper">
+
+                <Header image="/images/header/logo.svg" />
+                <main className="main">
+                    <section className="block-event">
+                        <div className="container1">
+                            {
+                                (events.length === 0 ?
+                                    (
+                                        <div>Loading</div>
+                                    ) : idShow ? (<Event iD={id} />) :
+                                        events.map((e1, e) => {
+                                            return (
+                                                <Fragment key={e}>
+                                                    <div className="col-left">
+                                                        <div className="profile-info">
+                                                            <div className="image-holder">
+                                                                <img src={e1.host.avatar} alt="image description" />
+                                                            </div>
+                                                            <blockquote>
+                                                                <cite>{`${e1.host.firstName} ${e1.host.lastName}`}</cite>
+                                                                <q>&ldquo;{`${e1.host.hostProfile.quote}`}&rdquo;</q>
+                                                            </blockquote>
                                                         </div>
-                                                        <blockquote>
-                                                            <cite>{`${e1.host.firstName} ${e1.host.lastName}`}</cite>
-                                                            <q>&ldquo;{`${e1.host.hostProfile.quote}`}&rdquo;</q>
-                                                        </blockquote>
+                                                        {
+                                                            (e1.host.hostProfile.introVideo ?
+                                                                (
+                                                                    <div className="video-area">
+                                                                        <Player
+                                                                            poster={`${e1.host.hostProfile.introVideo.thumbnail}`}
+                                                                            src={`${e1.host.hostProfile.introVideo.video}`}
+                                                                        >
+                                                                            <BigPlayButton position="center" />
+                                                                        </Player>
+                                                                    </div>
+                                                                ) :
+                                                                (
+                                                                    <div></div>
+                                                                )
+                                                            )
+                                                        }
+                                                        <p>{e1.host.hostProfile.description}</p>
+                                                        <ul className="list-detail">
+                                                            <li>
+                                                                <strong className="title">Home City:</strong>
+                                                                <span className="text">{e1.host.hostProfile.homeCity.description}</span>
+                                                            </li>
+                                                        </ul>
+
                                                     </div>
-                                                    {
-                                                        (e1.host.hostProfile.introVideo ?
-                                                            (
-                                                                <div className="video-area">
-                                                                    <Player
-                                                                        poster={`${e1.host.hostProfile.introVideo.thumbnail}`}
-                                                                        src={`${e1.host.hostProfile.introVideo.video}`}
-                                                                    >
-                                                                        <BigPlayButton position="center" />
-                                                                    </Player>
-                                                                </div>
-                                                            ) :
-                                                            (
-                                                                <div></div>
-                                                            )
-                                                        )
-                                                    }
-                                                    <p>{e1.host.hostProfile.description}</p>
-                                                    <ul className="list-detail">
-                                                        <li>
-                                                            <strong className="title">Home City:</strong>
-                                                            <span className="text">{e1.host.hostProfile.homeCity.description}</span>
-                                                        </li>
-                                                    </ul>
 
-                                                </div>
+                                                    <div className="col-right">
+                                                        <h1 className="h2">Events by {`${e1.host.firstName} ${e1.host.lastName}`}:</h1>
+                                                        {
+                                                            e1.event.map(e2 => {
 
-                                                <div className="col-right">
-                                                    <h1 className="h2">Events by {`${e1.host.firstName} ${e1.host.lastName}`}:</h1>
-                                                    {
-                                                        e1.event.map(e2 => {
-
-                                                            const startTime = formatAMPM(e2.eventStartTime)
-                                                            const endTime = formatAMPM(e2.eventEndTime)
-                                                            const monthNames = ["January", "February", "March", "April", "May", "June",
-                                                                "July", "August", "September", "October", "November", "December"
-                                                            ];
-                                                            const date = new Date(e2.eventStartTime)
-                                                            const year = date.getUTCFullYear()
-                                                            const month = monthNames[date.getUTCMonth() + 1]
-                                                            const datee = date.getUTCDate()
-                                                            var dif = (new Date(e2.eventEndTime) - new Date(e2.eventStartTime)) / 1000 / 60;
-                                                            return (
-                                                                <article className="article-card" key={e2.id}>
-                                                                    <div className="image-holder">
-                                                                        <a href="#"><img src={e2.headerImage} alt="image description" /></a>
-                                                                    </div>
-                                                                    <div className="text-holder">
-                                                                        <h2 className="h3"><a href="#" onClick={() => { localStorage.setItem("eventId", e2.id); setId(true) }}>{e2.title}</a></h2>
-                                                                        <p>{e2.slogan}</p>
-                                                                        <ul className="list-detail">
-                                                                            <li><i className="icon icon-calendar"></i>{`${month}, ${datee}th, ${year} at ${startTime}-${endTime}`}</li>
-                                                                            <li><i className="icon icon-location"></i>
-                                                                                {e1.host.timezone.replace('/', ', ')}
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div className="more-info">
-                                                                            <span className="tickets">3 Tickets Left</span>
-                                                                            <span className="duration">{dif} mins</span>
+                                                                const startTime = formatAMPM(e2.eventStartTime)
+                                                                const endTime = formatAMPM(e2.eventEndTime)
+                                                                const monthNames = ["January", "February", "March", "April", "May", "June",
+                                                                    "July", "August", "September", "October", "November", "December"
+                                                                ];
+                                                                const date = new Date(e2.eventStartTime)
+                                                                const year = date.getUTCFullYear()
+                                                                const month = monthNames[date.getUTCMonth() + 1]
+                                                                const datee = date.getUTCDate()
+                                                                var dif = (new Date(e2.eventEndTime) - new Date(e2.eventStartTime)) / 1000 / 60;
+                                                                return (
+                                                                    <article className="article-card" key={e2.id}>
+                                                                        <div className="image-holder">
+                                                                            <a href="#"><img src={e2.headerImage} alt="image description" /></a>
                                                                         </div>
-                                                                    </div>
-                                                                </article>
-                                                            )
-                                                        })
-                                                    }
-                                                </div>
-                                            </Fragment>
-                                        )
-                                    })
-                            )
-                        }
-                    </div>
+                                                                        <div className="text-holder">
+                                                                            <h2 className="h3"><Link to={`/hostEvent/${e2.id}`} >{e2.title}</Link></h2>
+                                                                            <p>{e2.slogan}</p>
+                                                                            <ul className="list-detail">
+                                                                                <li><i className="icon icon-calendar"></i>{`${month}, ${datee}th, ${year} at ${startTime}-${endTime}`}</li>
+                                                                                <li><i className="icon icon-location"></i>
+                                                                                    {e1.host.timezone.replace('/', ', ')}
+                                                                                </li>
+                                                                            </ul>
+                                                                            <div className="more-info">
+                                                                                <span className="tickets">3 Tickets Left</span>
+                                                                                <span className="duration">{dif} mins</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </article>
+                                                                )
+                                                            })
+                                                        }
+                                                    </div>
+                                                </Fragment>
+                                            )
+                                        })
+                                )
+                            }
+                        </div>
 
-                    <div className="popup-holder">
-                        <div className="popup-frame">
-                            <div className="popup-wrap">
-                                <div className="box-wrap">
-                                    <header className="head">
-                                        <h2>Message Jamie:</h2>
-                                        <a href="#" className="btn-close"><i className="icon icon-close"></i></a>
-                                    </header>
-                                    <form action="#" className="form-message">
-                                        <div className="field">
+                        <div className="popup-holder">
+                            <div className="popup-frame">
+                                <div className="popup-wrap">
+                                    <div className="box-wrap">
+                                        <header className="head">
+                                            <h2>Message Jamie:</h2>
+                                            <a href="#" className="btn-close"><i className="icon icon-close"></i></a>
+                                        </header>
+                                        <form action="#" className="form-message">
                                             <div className="field">
-                                                <label htmlFor="email">Your Email:</label>
-                                                <input type="email" id="email" />
+                                                <div className="field">
+                                                    <label htmlFor="email">Your Email:</label>
+                                                    <input type="email" id="email" />
+                                                </div>
+                                                <div className="field">
+                                                    <label htmlFor="message">Message:</label>
+                                                    <textarea id="message"></textarea>
+                                                </div>
+                                                <input type="submit" className="btn" value="Try A MatchDate Event" />
                                             </div>
-                                            <div className="field">
-                                                <label htmlFor="message">Message:</label>
-                                                <textarea id="message"></textarea>
-                                            </div>
-                                            <input type="submit" className="btn" value="Try A MatchDate Event" />
-                                        </div>
-                                    </form>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </section>
-            </main>
+                    </section>
+                </main>
+            </div>
         </>
 
     )
@@ -178,3 +181,6 @@ const mapStatetoProps = state => {
     };
 };
 export default connect(mapStatetoProps, { getEvents })(Events)
+
+
+// onClick={() => { localStorage.setItem("eventId", e2.id); setId(true) }}

@@ -1,0 +1,31 @@
+.customOverlay {
+    /* background: rgba(36, 123, 160, 0.7); */
+    -webkit-animation: customEnterAnimation 2s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: customEnterAnimation 2s; /* Firefox < 16 */
+        -ms-animation: customEnterAnimation 2s; /* Internet Explorer */
+         -o-animation: customEnterAnimation 2s; /* Opera < 12.1 */
+            animation: customEnterAnimation 2s;
+  }
+  .customModal {
+    background: #b2dbbf;
+    max-width: 500px;
+    width: 100%;
+  }
+
+  @keyframes customEnterAnimation {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      
+      opacity: 1;
+    }
+  }
+  @keyframes customLeaveAnimation {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }

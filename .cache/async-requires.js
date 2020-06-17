@@ -3,6 +3,7 @@ const preferDefault = m => m && m.default || m
 
 exports.components = {
   "component---src-components-events-event-js": () => import("./../src/components/Events/Event.js" /* webpackChunkName: "component---src-components-events-event-js" */),
+  "component---src-components-events-events-js": () => import("./../src/components/Events/Events.js" /* webpackChunkName: "component---src-components-events-events-js" */),
   "component---src-pages-404-js": () => import("./../src/pages/404.js" /* webpackChunkName: "component---src-pages-404-js" */),
   "component---src-pages-about-page-js": () => import("./../src/pages/AboutPage.js" /* webpackChunkName: "component---src-pages-about-page-js" */),
   "component---src-pages-event-calendar-page-js": () => import("./../src/pages/EventCalendarPage.js" /* webpackChunkName: "component---src-pages-event-calendar-page-js" */),

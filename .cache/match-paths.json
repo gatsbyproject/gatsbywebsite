@@ -2,5 +2,9 @@
     {
         "path": "/hostEvent",
         "matchPath": "/hostEvent/:id"
+    },
+    {
+        "path": "/hostEvents",
+        "matchPath": "/hostEvents/:id"
     }
 ]

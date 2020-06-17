@@ -6,6 +6,7 @@ const preferDefault = m => m && m.default || m
 
 exports.components = {
   "component---src-components-events-event-js": hot(preferDefault(require("D:\\new1\\src\\components\\Events\\Event.js"))),
+  "component---src-components-events-events-js": hot(preferDefault(require("D:\\new1\\src\\components\\Events\\Events.js"))),
   "component---src-pages-404-js": hot(preferDefault(require("D:\\new1\\src\\pages\\404.js"))),
   "component---src-pages-about-page-js": hot(preferDefault(require("D:\\new1\\src\\pages\\AboutPage.js"))),
   "component---src-pages-event-calendar-page-js": hot(preferDefault(require("D:\\new1\\src\\pages\\EventCalendarPage.js"))),

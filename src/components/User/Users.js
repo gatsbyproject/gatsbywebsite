@@ -81,12 +81,15 @@ const User = (props) => {
             [e.target.name]: e.target.value
         })
     }
-    const handleSubmit1 = (e) => {
+    const handleSubmit1 = async (e) => {
         e.preventDefault()
-        props.dispatch(startSetUser(loginValue))
-        parentCall('yes')
+        var c = await props.dispatch(startSetUser(loginValue))
+        console.log(c)
+        if (c) {
+            parentCall('yes')
+        }
     }
-    
+
 
     return (
         <>
@@ -103,20 +106,22 @@ const User = (props) => {
                     </div>
                     <div className="field">
                         <label htmlFor="message">Password:</label>
-                        <input type="text" id="password" required name="password" onChange={handleChange1} />
+                        <input type="password" id="password" required name="password" onChange={handleChange1} />
                     </div>
                     <input type="submit" style={{ boxShadow: 'none' }} className="btn" value="Login" />
                 </div>
             </form>
-            <a href="#" onClick={() => setOpenSecond(true)}>Don't have an account <b>Register</b></a>
+            <a type="button" onClick={() => setOpenSecond(true)}>Don't have an account <b>Register</b></a>
 
             <Modal
+                styles={{ modal: { borderRadius: '14px' }, overlay: { background: 'rgba(0, 0, 0, 0.25)' } }}
                 open={openSecond}
                 onClose={() => setOpenSecond(false)}
                 classNames={{
                     animationIn: 'customEnterAnimation',
                     animationOut: 'customLeaveAnimation',
                 }}
+
                 animationDuration={1000}
                 center>
                 <Register />

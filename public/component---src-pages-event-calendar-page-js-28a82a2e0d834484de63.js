@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[9],{JLkq:function(e,n,t){"use strict";t.r(n);var a=t("q1tI"),r=t.n(a),c=t("CN8t"),l=(t("5vxV"),t("wrE1"));n.default=function(){return r.a.createElement("div",{id:"wrapper"},r.a.createElement(l.d,null),r.a.createElement(c.a,null))}}}]);
-//# sourceMappingURL=component---src-pages-event-calendar-page-js-28a82a2e0d834484de63.js.map

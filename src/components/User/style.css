@@ -3,7 +3,12 @@ button{
 }
 
 .customOverlay {
-    background: rgba(36, 123, 160, 0.7);
+    /* background: rgba(36, 123, 160, 0.7); */
+    -webkit-animation: customEnterAnimation 2s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: customEnterAnimation 2s; /* Firefox < 16 */
+        -ms-animation: customEnterAnimation 2s; /* Internet Explorer */
+         -o-animation: customEnterAnimation 2s; /* Opera < 12.1 */
+            animation: customEnterAnimation 2s;
   }
   .customModal {
     background: #b2dbbf;
@@ -13,17 +18,18 @@ button{
 
   @keyframes customEnterAnimation {
     0% {
-      transform: scale(0);
+      opacity: 0;
     }
     100% {
-      transform: scale(1);
+      
+      opacity: 1;
     }
   }
   @keyframes customLeaveAnimation {
     0% {
-      transform: scale(1);
+      opacity: 1;
     }
     100% {
-      transform: scale(0);
+      opacity: 0;
     }
   }
