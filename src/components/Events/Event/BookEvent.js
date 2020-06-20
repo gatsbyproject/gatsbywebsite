@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { useForm } from "react-hook-form";
 import './style.css'
-const BookEvent = ({ event, parentCall }) => {
+import { connect } from 'react-redux'
+const BookEvent = ({ event, parentCall, user }) => {
     const { handleSubmit, register, errors, setError, clearError } = useForm();
 
     let thisYear = (new Date()).getFullYear();
     const [monthOptions, getMonth] = useState(null)
     const [yearOptions, getYears] = useState(null)
+
+    console.log(user)
     useEffect(
         () => {
             const yearsOptions = [], monthsOptions = []
@@ -49,9 +52,16 @@ const BookEvent = ({ event, parentCall }) => {
         dif = (new Date(event.eventEndTime) - new Date(event.eventStartTime)) / 1000 / 60 / 60;
     }
     const [cardType, setCardType] = useState(null)
-    console.log(event)
-    console.log(cardType)
-    const onSubmit = values => console.log(values);
+
+    const onSubmit = (values) => {
+        values['userId'] = user.id
+        values['eventId'] = event.id
+        values['subTotal'] = event.price
+        values['name'] = user.firstName + user.lastName
+        values['email'] = user.email
+        values['eventUserId'] = event.host.id
+        console.log(values)
+    }
     return (
         <>
             <div class="host-detail">
@@ -218,7 +228,7 @@ const BookEvent = ({ event, parentCall }) => {
                             </div>
                         </div>
                         <label class="check-holder">
-                            <input type="checkbox" name="save" value="yes" ref={register} />
+                            <input type="checkbox" name="saveCardForFutureUse" value="yes" ref={register} />
                             <span class="fake-check"></span>
                                                                         Save card for later use
                                                                     </label>
@@ -229,8 +239,13 @@ const BookEvent = ({ event, parentCall }) => {
         </>
     )
 }
+const mapStatetoProps = state => {
+    return {
+        user: state.user
+    };
+};
+export default connect(mapStatetoProps)(BookEvent)
 
-export default BookEvent
 
 
 

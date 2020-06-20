@@ -409,10 +409,14 @@ body.video-react-full-window .video-react-fullscreen {
   -moz-transition: all 0s;
   -o-transition: all 0s;
   transition: all 0s;
+  background: white !important;
+  width: 50px !important;
+  height: 49px !important;
 }
 
 .video-react-menu-button {
   cursor: pointer;
+  
 }
 .video-react-menu-button.video-react-disabled {
   cursor: default;

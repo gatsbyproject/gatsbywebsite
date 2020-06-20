@@ -2,7 +2,7 @@ import React, { useEffect, useState, Fragment, useRef } from 'react'
 import { Link } from "gatsby"
 import Header from '../Header/Header'
 import { Player, BigPlayButton } from 'video-react'
-import "./video.css";
+import "./video-react.css";
 import { connect } from "react-redux";
 import { getEvents } from '../../redux/Events/events.action'
 import Event from './Event'
@@ -76,6 +76,7 @@ const Events = (props) => {
                                                                     <div className="video-area">
                                                                         <Player
                                                                             fluid={false}
+                                                                            width={'100%'}
                                                                             height={255}
                                                                             poster={`${e1.host.hostProfile.introVideo.thumbnail}`}
                                                                             src={`${e1.host.hostProfile.introVideo.video}`}

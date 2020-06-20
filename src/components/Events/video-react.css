@@ -268,7 +268,7 @@ body.video-react-full-window .video-react-fullscreen {
 }
 
 .video-react button {
-  background: white;
+  background: black;
   border: none;
   color: inherit;
   display: inline-block;
@@ -377,6 +377,9 @@ body.video-react-full-window .video-react-fullscreen {
   }
 }
 .video-react .video-react-big-play-button {
+  background: white !important;
+  width: 50px !important;
+  height: 49px !important;
   /* font-size: 3em;
   width: 77px !important;
 	height: 77px !important;

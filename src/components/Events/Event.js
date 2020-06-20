@@ -4,7 +4,7 @@ import { getEvents } from '../../redux/Events/events.action'
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import { Player, BigPlayButton } from 'video-react'
-import "./video-react.css";
+import "./video.css";
 import './style.css'
 import RegisterTicket from './Event/RegisterTicket'
 import BookEvent from './Event/BookEvent'
@@ -41,7 +41,7 @@ const Event = (props) => {
         }, []
     )
 
-
+    console.log(props)
 
     const callback = value => {
         setShow(value)
@@ -56,7 +56,7 @@ const Event = (props) => {
                         <div class="container1">
                             {
 
-                                (event.host ?
+                                ((Object.keys(event).length > 1) ?
                                     (
                                         <Fragment key={event.host.id}>
                                             <div className="col-left">
@@ -80,6 +80,7 @@ const Event = (props) => {
                                                                     poster={`${event.host.hostProfile.introVideo.thumbnail}`}
                                                                     src={`${event.host.hostProfile.introVideo.video}`}
                                                                 >
+
                                                                     <BigPlayButton position="center" />
                                                                 </Player>
                                                             </div>

@@ -9,4 +9,4 @@ import { PersistGate } from 'redux-persist/integration/react';
 const store = createStore(rootReducer, applyMiddleware(thunk));
 const persistor = persistStore(store);
 store.dispatch(getEvents())
-export default ({ element }) => <Provider store={store}><PersistGate persistor={persistor}>{element}</PersistGate></Provider>
+export default ({ element }) => <Provider store={store}><PersistGate loading={null} persistor={persistor}>{element}</PersistGate></Provider>

@@ -167,7 +167,7 @@ const Header = ({ image }) => {
             {/* <li><Link to="/event-calendar">Event Calendar</Link></li> */}
             {/* <li><Link to="/event-visual">Event Visual</Link></li> */}
             <li><Link to="/faq">FAQ</Link></li>
-            <li><Link to="/testimonial">Testimonials</Link></li>
+            {/* <li><Link to="/testimonial">Testimonials</Link></li> */}
             {/* <li><a href="#">Registration and Events</a></li> */}
           </ul>
         </div>
