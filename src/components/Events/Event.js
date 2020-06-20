@@ -3,20 +3,16 @@ import { connect } from 'react-redux'
 import { getEvents } from '../../redux/Events/events.action'
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
-import Testimonial from '../Testimonials/Testimonial'
-import { Link } from 'gatsby'
 import { Player, BigPlayButton } from 'video-react'
 import "./video-react.css";
-import Users from '../User/Users'
-import Select from 'react-select'
-import { Modal } from 'react-responsive-modal'
-import Cookies from 'js-cookie'
 import './style.css'
+import RegisterTicket from './Event/RegisterTicket'
+import BookEvent from './Event/BookEvent'
 const Event = (props) => {
-    let thisYear = (new Date()).getFullYear();
+
     const [event, setEvent] = useState({})
     const [show, setShow] = useState(1)
-    const [name1, setName] = useState(false)
+    let thisYear = (new Date()).getFullYear();
     const [monthOptions, getMonth] = useState({ options: null, value: null })
     const [yearOptions, getYears] = useState({ options: null, value: null })
     useEffect(
@@ -44,67 +40,12 @@ const Event = (props) => {
             })
         }, []
     )
-    console.log(props, 'k')
-    const formatAMPM = (date) => {
-        var date = new Date(date);
-        var hours = date.getHours();
-        var minutes = date.getMinutes();
-        var ampm = hours >= 12 ? 'pm' : 'am';
-        hours = hours % 12;
-        hours = hours ? hours : 12; // the hour '0' should be '12'
-        minutes = minutes < 10 ? '0' + minutes : minutes;
-        var strTime = hours + ':' + minutes + ' ' + ampm;
-        return strTime;
-    }
-    const startTime = formatAMPM(event.eventStartTime)
-    const endTime = formatAMPM(event.eventEndTime)
-    const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "June",
-        "July", "Aug", "Sep", "Oct", "Nov", "Dec"
-    ];
-    const date = new Date(event.eventStartTime)
-    const year = date.getUTCFullYear()
-    const month = monthNames[date.getUTCMonth() + 1]
-    const datee = date.getUTCDate()
-    var dif;
-    dif = (new Date(event.eventEndTime) - new Date(event.eventStartTime)) / 1000 / 60;
-    if (dif > 90) {
-        dif = (new Date(event.eventEndTime) - new Date(event.eventStartTime)) / 1000 / 60 / 60;
-    }
-    const monthHandler = (value) => {
-        getMonth({
-            ...monthOptions,
-            value: value
-        })
-    }
-    const yearHandler = (value) => {
-        getYears({
-            ...yearOptions,
-            value: value
-        })
-    }
 
-    const handleRegister = () => {
-        var token = Cookies.get("token")
-        if (token) {
-            setShow(2)
-        } else {
-            setName(true)
-        }
-    }
+
 
     const callback = value => {
-        setName(false)
-        var token = Cookies.get("token")
-        console.log(token)
-        if (token) {
-            console.log('yes')
-            setShow(2)
-        } else {
-            console.log('no')
-            setShow(1)
-        }
+        setShow(value)
     }
-
     return (
         <>
             <div id="wrapper">
@@ -133,6 +74,9 @@ const Event = (props) => {
                                                         (
                                                             <div className="video-area">
                                                                 <Player
+                                                                    fluid={false}
+                                                                    width={'100%'}
+                                                                    height={255}
                                                                     poster={`${event.host.hostProfile.introVideo.thumbnail}`}
                                                                     src={`${event.host.hostProfile.introVideo.video}`}
                                                                 >
@@ -158,159 +102,13 @@ const Event = (props) => {
                                                 ((show === 1) ?
                                                     (
                                                         <div class="col-right">
-                                                            <div class="host-detail">
-                                                                <header class="head">
-                                                                    <Link to={`/hostEvents/${event.host.id}`} class="btn-back"><i class="icon icon-back"></i>Back</Link>
-                                                                    <a href="#" class="share"><i class="icon icon-share"></i></a>
-                                                                </header>
-                                                                <div class="detail-box">
-                                                                    <div class="banner-image">
-                                                                        <img src={event.headerImage} alt="image description" />
-                                                                    </div>
-                                                                    <h1 class="h3">{event.title}</h1>
-                                                                    <div class="event-info">
-                                                                        <strong class="title">{event.slogan}</strong>
-                                                                        <strong class="duration">{(dif > 90 ? `${dif}hrs` : `${dif}mins`)}</strong>
-                                                                    </div>
-                                                                    <p>{event.description}</p>
-                                                                    <div class="row">
-                                                                        <div class="col">
-                                                                            <strong class="title">Cost:</strong>
-                                                                            <strong class="price">${event.price}</strong>
-                                                                        </div>
-                                                                        <div class="col">
-                                                                            <strong class="title">Capacity:</strong>
-                                                                            <strong class="guests">{event.capacity} guests</strong>
-                                                                        </div>
-                                                                        {/* <div class="col">
-                                                                        <strong class="title">Registered:</strong>
-                                                                        <div class="guest-info">
-                                                                            <ul class="list-guests">
-                                                                                <li><img src={event.host.avatar} /></li>
-                                                                                <li><img src={event.host.avatar} /></li>
-                                                                                <li><img src={event.host.avatar} /></li>
-                                                                                <li><img src={event.host.avatar} /></li>
-                                                                            </ul>
-                                                                            <strong class="guests">5 guests</strong>
-                                                                        </div>
-                                                                    </div> */}
-                                                                    </div>
-                                                                    <div class="event-location">
-                                                                        <div class="col">
-                                                                            <i class="icon icon-calendar"></i>
-                                                                            <strong class="heading"><time>{`${month} ${datee}th, ${year}`}</time></strong>
-                                                                            <span class="time">{`${startTime}-${endTime}`}</span>
-                                                                        </div>
-                                                                        <div class="col">
-                                                                            <i class="icon icon-location"></i>
-                                                                            <strong class="heading">Location:</strong>
-                                                                            <address>Building One, 125 Main Street, Chicago</address>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="host-info">
-                                                                        <div class="image-holder">
-                                                                            <img src={event.host.avatar} alt="image description" />
-                                                                        </div>
-                                                                        <div class="text-holder">
-                                                                            <strong class="title">{`${event.host.firstName} ${event.host.lastName}`}</strong>
-                                                                            <span class="designation">Fitness Trainer</span>
-                                                                        </div>
-                                                                    </div>
-                                                                    <h2 class="h3">Additional Notes:</h2>
-                                                                    <p>{event.additionalInfo}</p>
-                                                                    <button class="btn" onClick={handleRegister}>Register Ticket</button>
-                                                                </div>
-                                                            </div>
-
+                                                            <RegisterTicket event={event} parentCall={callback} />
                                                         </div>
 
                                                     ) : (show === 2) ?
                                                         (
                                                             <div class="col-right">
-                                                                <div class="host-detail">
-                                                                    <header class="head">
-                                                                        <a type="button" class="btn-back" onClick={() => setShow(1)}><i class="icon icon-back"></i>Back</a>
-                                                                    </header>
-                                                                    <div class="detail-box style">
-                                                                        <h1 class="h3">{event.title}</h1>
-                                                                        <p>{event.description}</p>
-                                                                        <div class="event-location">
-                                                                            <div class="col">
-                                                                                <i class="icon icon-calendar"></i>
-                                                                                <strong class="heading"><time datetime="2019-01-14">{`${month} ${datee}th, ${year}`}</time></strong>
-                                                                                <span class="time">{`${startTime}-${endTime}`}</span>
-                                                                            </div>
-                                                                            <div class="col">
-                                                                                <i class="icon icon-location"></i>
-                                                                                <strong class="heading">Location:</strong>
-                                                                                <address>Building One, 125 Main Street, Chicago</address>
-                                                                            </div>
-                                                                        </div>
-                                                                        <form action="#" class="form-booking">
-                                                                            <div class="promo-row">
-                                                                                <div class="col1">
-                                                                                    <div class="price-info">
-                                                                                        <strong class="heaing">Cost:</strong>
-                                                                                        <strong class="price">${event.price}</strong>
-                                                                                    </div>
-                                                                                    <span class="info-text">Includes the evnet and one drink tickets at the after event mixer.</span>
-                                                                                </div>
-                                                                                <div class="col1">
-                                                                                    <label for="promo">Promo/Pass Code:</label>
-                                                                                    <input type="text" id="promo" />
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="row-fields">
-                                                                                <div class="col1 full-width">
-                                                                                    <label for="card">Card Type:</label>
-                                                                                    <input type="text" id="card" class="w-small" />
-                                                                                </div>
-                                                                                <div class="col1">
-                                                                                    <label for="name">Name on Card:</label>
-                                                                                    <input type="text" id="name" />
-                                                                                </div>
-                                                                                <div class="col1">
-                                                                                    <label for="number">Card Number:</label>
-                                                                                    <input type="text" id="number" />
-                                                                                </div>
-                                                                                <div class="col1">
-                                                                                    <label for="ccv">CCV:</label>
-                                                                                    <input type="text" id="ccv" class="w-small" />
-                                                                                </div>
-                                                                                <div class="col1">
-                                                                                    <label for="expiry">Expire Date:</label>
-                                                                                    <div class="two-fields">
-                                                                                        <div class="field">
-                                                                                            {/* <input type="text" id="expiry" /> */}
-                                                                                            <Select
-                                                                                                defaultValue={monthOptions.options[0]}
-                                                                                                className="expiry1"
-                                                                                                onChange={monthHandler}
-                                                                                                value={monthOptions.value}
-                                                                                                options={monthOptions.options}
-                                                                                            />
-                                                                                        </div>
-                                                                                        <div class="field">
-                                                                                            <Select
-                                                                                                defaultValue={yearOptions.options[0]}
-                                                                                                className="expiry1"
-                                                                                                onChange={yearHandler}
-                                                                                                value={yearOptions.value}
-                                                                                                options={yearOptions.options}
-                                                                                            />
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <label class="check-holder">
-                                                                                <input type="checkbox" />
-                                                                                <span class="fake-check"></span>
-                                                                        Save card for later use
-                                                                    </label>
-                                                                            <input type="submit" class="btn" value="Book Event" />
-                                                                        </form>
-                                                                    </div>
-                                                                </div>
+                                                                <BookEvent event={event} parentCall={callback} />
                                                             </div>
                                                         ) : (show === 3) ?
                                                             (
@@ -371,22 +169,7 @@ const Event = (props) => {
                                 </div>
 
                             </div >
-                            {/* <Testimonial /> */}
-                            {
-                                (name1) ? (
-                                    <Modal
-                                        styles={{ modal: { borderRadius: '14px' }, overlay: { background: 'rgba(0, 0, 0, 0.50)' } }}
-                                        open={name1}
-                                        onClose={() => setName(false)}
-                                        classNames={{
-                                            animationIn: 'customEnterAnimation',
-                                            animationOut: 'customLeaveAnimation',
-                                        }}
-                                        center>
-                                        <Users parentCall={callback} />
-                                    </Modal>
-                                ) : (<div></div>)
-                            }
+
                         </div>
                     </section>
                 </main>

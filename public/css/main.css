@@ -550,6 +550,7 @@ input[type="tel"],
 input[type="email"],
 input[type="search"],
 input[type="password"],
+select,
 textarea {
 	font-size: 16px;
 	line-height: 19px;
@@ -2593,6 +2594,7 @@ input[type="submit"] {
 
 .form-message input[type="text"],
 .form-message input[type="email"],
+.form-message input[type="password"],
 .form-message textarea {
 	font-size: 18px;
 	line-height: 22px;
@@ -2704,7 +2706,7 @@ input[type="submit"] {
 .form-booking input[type="password"],
 .form-booking input[type="number"],
 .form-booking input[type="tel"],
-
+.form-booking select,
 .form-booking textarea {
 	height: 55px;
 	border: 1px solid #8c8c8c;

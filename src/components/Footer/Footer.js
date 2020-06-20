@@ -20,10 +20,10 @@ const Footer = () => {
                         <strong className="title">Available On</strong>
                         <ul className="list-apps">
                             <li>
-                                <a href="#"><i className="icon icon-play-store"></i>Google Play Store </a>
+                                <a href="http://onelink.to/r7p69d" target="_blank"><i className="icon icon-play-store"></i>Google Play Store </a>
                             </li>
                             <li>
-                                <a href="#"><i className="icon icon-apple-store"></i>Apple App Store</a>
+                                <a href="http://onelink.to/r7p69d" target="_blank"><i className="icon icon-apple-store"></i>Apple App Store</a>
                             </li>
                         </ul>
                     </div>

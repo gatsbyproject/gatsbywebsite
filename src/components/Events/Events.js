@@ -75,6 +75,8 @@ const Events = (props) => {
                                                                 (
                                                                     <div className="video-area">
                                                                         <Player
+                                                                            fluid={false}
+                                                                            height={255}
                                                                             poster={`${e1.host.hostProfile.introVideo.thumbnail}`}
                                                                             src={`${e1.host.hostProfile.introVideo.video}`}
                                                                         >
@@ -115,7 +117,7 @@ const Events = (props) => {
                                                                 return (
                                                                     <article className="article-card" key={e2.id}>
                                                                         <div className="image-holder">
-                                                                            <a href="#"><img src={e2.headerImage} alt="image description" /></a>
+                                                                            <a href="#"><img src={e2.headerImage} alt="image description" style={{ height: '13em' }} /></a>
                                                                         </div>
                                                                         <div className="text-holder">
                                                                             <h2 className="h3"><Link to={`/hostEvent/${e2.id}`} >{e2.title}</Link></h2>

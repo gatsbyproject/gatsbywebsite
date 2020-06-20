@@ -15,9 +15,27 @@ const EventsCalendar = (props) => {
             getEvents(props.event.apiEvents)
         }, [props.event.apiEvents]
     )
+    const dateFn = (date) => {
+        const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "June",
+            "July", "Aug", "Sep", "Oct", "Nov", "Dec"
+        ];
+        const year = date.getUTCFullYear()
+        const month = monthNames[date.getUTCMonth() + 1]
+        const datee = date.getUTCDate()
+        var date1 = datee + "-" + month + "-" + year
+        return date1
+    }
     const handleChange = date => {
+        console.log('d')
         setDate(date);
+
+        const propEvents = [...props.event.apiEvents]
+        var newEvents = propEvents.filter(e => {
+            return new Date(e.eventRoomOpenAt) <= new Date(date)
+        })
+        getEvents(newEvents)
     };
+
     return (
         <>
 
@@ -37,10 +55,9 @@ const EventsCalendar = (props) => {
                                     id="calender"
                                     onChange={handleChange}
                                 />
-
                                 <label htmlFor="calender" style={{ right: "48px" }}><i className="icon-calendar1"></i></label>
                             </div>
-                            <a href="#" className="btn">Register Now</a>
+                            <button className="btn">Register Now</button>
                         </div>
                     </div>
                 </div>
